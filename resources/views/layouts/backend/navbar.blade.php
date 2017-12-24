@@ -24,13 +24,13 @@
              <?php $currentUser = Auth::user() ?>
 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ $currentUser->gravatar() }}" class="user-image" alt="{{ $currentUser->name}}">
+              <img src="{{ $currentUser->gravatar() }}" class="user-image" alt="{{ $currentUser->name }}">
               <span class="hidden-xs">{{ Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{ $currerntUser->gravatar() }}" class="img-circle" alt="{{ $currentUser->name }}">
+                <img src="{{ $currentUser->gravatar() }}" class="img-circle" alt="{{ $currentUser->name}}">
 
                 <p>
                    {{ $currentUser->name}}

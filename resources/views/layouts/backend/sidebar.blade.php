@@ -3,8 +3,9 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
+       <?php $currentUser = Auth::user() ?> 
         <div class="pull-left image">
-          <img src="/backend/img/avatar5.png" class="img-circle" alt="User Image">
+          <img src="{{ $currentUser->gravatar() }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p> {{ Auth::user()->name}}</p>
