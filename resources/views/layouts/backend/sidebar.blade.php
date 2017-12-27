@@ -23,7 +23,7 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pencil"></i>
-            <span>Blog</span>
+            <span>Posts</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

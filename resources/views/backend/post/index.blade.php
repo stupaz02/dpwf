@@ -47,8 +47,8 @@
                                     <td>
                                        {{ $post->title }} 
                                     </td>
-                                    <td> John Doe</td>
-                                    <td>Category</td>
+                                    <td> {{ $post->author->name }}</td>
+                                    <td>{{ $post->category->title }}</td>
                                     <td>{{ $post->created_at }}</td>
                                 </tr>
 
