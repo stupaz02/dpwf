@@ -23,3 +23,5 @@ Route::get('/',[
 Auth::routes();
 
 Route::get('/home', 'Backend\HomeController@index')->name('home');
+
+Route::resource('/backend/post', 'Backend\PostController');
