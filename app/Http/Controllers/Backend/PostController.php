@@ -17,7 +17,8 @@ class PostController extends BackendController
     public function index()
     {
         $posts = Post::with('category','author')->latest()->paginate($this->limit);
-        return view("backend.post.index", compact('posts'));
+        $postCount = Post::count();
+        return view("backend.post.index", compact('posts','postCount'));
     }
 
     /**
