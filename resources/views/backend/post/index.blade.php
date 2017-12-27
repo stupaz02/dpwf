@@ -25,11 +25,11 @@
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <td>Action</td>
+                               <td width="120">Action</td>
                                <td>Title</td>
-                               <td>Author</td>
-                               <td>Category</td>
-                               <td>Date</td>
+                               <td width="120">Author</td>
+                               <td width="150">Category</td>
+                               <td width="170">Date</td>
                            </tr>
                        </thead>
                        <tbody>
@@ -44,12 +44,13 @@
                                         <i class="fa fa-times"></i>
                                         </a>
                                     </td>
-                                    <td>
-                                       {{ $post->title }} 
-                                    </td>
-                                    <td> {{ $post->author->name }}</td>
+                                    <td>{{ $post->title }}</td>
+                                    <td>{{ $post->author->name }}</td>
                                     <td>{{ $post->category->title }}</td>
-                                    <td>{{ $post->created_at }}</td>
+                                    <td>
+                                        <abbr title="{{ $post->dateFormatted(true)}}">{{ $post->dateFormatted() }}</abbr>
+                                        {!! $post->publicationLabel() !!}
+                                    </td>
                                 </tr>
 
                             @endforeach

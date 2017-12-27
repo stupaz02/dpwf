@@ -35,4 +35,11 @@ class User extends Authenticatable
         $size = 100;
         return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+
 }
