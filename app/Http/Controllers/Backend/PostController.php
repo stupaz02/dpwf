@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest; 
 use App\Post;
 // use App\Http\Controllers\Controller;
 
@@ -26,9 +27,9 @@ class PostController extends BackendController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Post $post)
     {
-        dd('Create Post');
+        return view('backend.post.create', compact('post'));
     }
 
     /**
@@ -37,10 +38,15 @@ class PostController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        dd('store post');
-    }
+       
+
+           $request->user()->posts()->create($request->all());
+
+           return redirect()->route('post.index')->with('message', 'Your posts was created successfully!');
+           
+        }
 
     /**
      * Display the specified resource.
