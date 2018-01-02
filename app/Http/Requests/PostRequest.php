@@ -23,7 +23,8 @@ class PostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+       
+        $rules = [
             'title'        => 'required',
             'slug'         => 'required|unique:posts',
             'excerpt'      => 'required|max:150',
@@ -32,6 +33,17 @@ class PostRequest extends FormRequest
             'category_id'  => 'required',
             'image'        => 'mimes:jpg,jpeg,png,bmp'
         ];
+
+
+        switch($this->method()){
+            case 'PUT':
+            case 'PATCH':
+                $rules['slug'] = 'required|unique:posts,slug,' . $this->route('post');
+                break;
+        }
+
+        return $rules;
+        
 
         if (empty($request->published_at)) {
             unset($rules['published_at']);

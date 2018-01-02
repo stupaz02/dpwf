@@ -109,7 +109,9 @@ class PostController extends BackendController
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('backend.post.edit', compact('post'));
     }
 
     /**
@@ -119,9 +121,16 @@ class PostController extends BackendController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $data = $this->handleRequest($request);
+        $post->update($data);
+
+        return redirect()->route('post.index')->with('message', 'Your posts was updated successfully!');
+
+
+
     }
 
     /**

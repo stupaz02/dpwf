@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('Title','Depedd Palawan | Add new post')
+@section('Title','Depedd Palawan | Edit Post')
 
 @section('content')
 <div class="content-wrapper">
@@ -8,14 +8,14 @@
     <section class="content-header">
       <h1>
          Website Posts
-        <small>Add new post</small>
+        <small>Edit post</small>
       </h1>
       <ol class="breadcrumb">
           <li>
               <a href="{{ url('/home')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
           </li>
           <li class="active"><a href="{{ route('post.index')}}">Deped Palawan</a></li>
-          <li class="active">Add new</li>
+          <li class="active">Edit post</li>
       </ol>
     </section>
 
@@ -23,8 +23,8 @@
     <section class="content">
         <div class="row">
                 {!! Form::model($post, [
-                    'method' => 'POST',
-                    'route'  => 'post.store',
+                    'method' => 'PUT',
+                    'route'  => ['post.update', $post->id],
                     'files'  => TRUE,
                     'id'     => 'post-form'
                  ]) !!}
