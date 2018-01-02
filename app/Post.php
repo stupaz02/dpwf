@@ -43,9 +43,10 @@ class Post extends Model
         
     }
 
+
     public function setPublishedAtAttribute($value)
     {
-        $this->attributes['published_at'] = $value ?: NULL;
+        $this->attributes['published_at'] = $value ? :NULL;
     }
 
     public function getDateAttribute($value)

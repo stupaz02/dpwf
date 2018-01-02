@@ -24,20 +24,19 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'         => 'required',
-            'slug'          => 'required|unique:posts',
-            'body'          => 'required',
-            'published_at'  => 'date_format:Y-m-d H:i:s',
-            'category_id'   => 'required',
-            'image'        => 'mimes:jpg,jpeg,bmp,png'
+            'title'        => 'required',
+            'slug'         => 'required|unique:posts',
+            'excerpt'      => 'required|max:150',
+            'body'         => 'required',
+            'published_at' => 'nullable|date_format:Y-m-d H:i:s',
+            'category_id'  => 'required',
+            'image'        => 'mimes:jpg,jpeg,png,bmp'
         ];
 
-         
-        if (empty($request->published_at)) 
-        {
+        if (empty($request->published_at)) {
             unset($rules['published_at']);
         }
- 
         $this->validate($request, $rules);
-    }
+    }    
+        
 }
