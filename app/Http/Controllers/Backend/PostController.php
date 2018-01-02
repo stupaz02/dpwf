@@ -141,6 +141,8 @@ class PostController extends BackendController
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id)->delete();
+        return redirect()->route('post.index')->with('message', 'Your posts was deleted successfully!');
+
     }
 }
