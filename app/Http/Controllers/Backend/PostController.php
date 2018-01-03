@@ -159,7 +159,10 @@ class PostController extends BackendController
 
     public function forceDestroy($id)
     {
-        $post = Post::withTrashed()->findOrFail($id)->forceDelete();
+        $post = Post::withTrashed()->findOrFail($id);
+        $post->forceDelete();
+
+        $this->removeImage($post->image);
 
         return redirect('/backend/post?status=trash')->with('message', 'Your post has been deleted successfully');
 
@@ -171,5 +174,19 @@ class PostController extends BackendController
         $post->restore();
 
         return redirect()->route('post.index')->with('message','Your post has been moved from the Trash');
+    }
+
+
+    public function removeImage($image)
+    {
+        if(! empty($image))
+        {
+            $imagePath     = $this->uploadPath . '/' . $image;
+            $ext           = substr(strrchr($image, '.'), 1);
+            $thumbnail     = str_replace(".{$ext}", "_thumb.{$ext}", $image);
+            $thumbnailPath = $this->uploadPath . '/' . $thumbnail;
+            if (file_exists($imagePath)) unlink($imagePath);
+            if (file_exists($thumbnailPath)) unlink($thumbnailPath);
+        }
     }
 }

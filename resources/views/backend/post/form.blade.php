@@ -21,9 +21,13 @@
                @endif
             </div>
 
-            <div class="form-group excerpt">
+            <div class="form-group {{ $errors->has('excerpt') ? 'has-error' : '' }}">
                 {!! Form::label('excerpt') !!}
                 {!! Form::textarea('excerpt', null,['class' =>'form-control']) !!}
+
+                @if($errors->has('excerpt'))
+                <span class="help-block">{{ $errors->first('excerpt') }}</span>
+            @endif
             </div>
 
             <div class="form-group {{ $errors->has('body') ? 'has-error' : '' }}">
@@ -33,10 +37,7 @@
                 @if($errors->has('body'))
                     <span class="help-block">{{ $errors->first('body') }}</span>
                 @endif
-            </div>         
-
-       
-        
+            </div>            
       </div>
       <!-- /.box-body -->
    
@@ -83,7 +84,7 @@
             <div class="box-body">
                 
                 <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
-                    {!! Form::label('category_id','Category') !!}
+                    {{--  {!! Form::label('category_id','Category') !!}  --}}
                     {!! Form::select('category_id', App\Category::pluck('title','id'), null,['class' =>'form-control','placeholder'=> 'Choose category']) !!}
                     
 
@@ -99,11 +100,19 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Featured Image</h3>
             </div>
-            <div class="box-body">
+            <div class="box-body text-center">
                 <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
-                    {!! Form::label('image','Feature Image') !!}
-                    {!! Form::file('image') !!}
-                    
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                            <img src="{{ ($post->image_thumb_url) ? $post->image_thumb_url: 'http://placehold.it/200x150&text=No+Image'}}" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                        <div>
+                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span> {!! Form::file('image') !!}</span>
+                            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
+                     </div>
+                   
 
                     @if($errors->has('image'))
                        <span class="help-block">{{ $errors->first('image') }}</span>
@@ -113,7 +122,4 @@
 
             </div>
         </div>
-
-        
-
   </div>

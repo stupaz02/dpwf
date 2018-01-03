@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="/backend/plugins/simplemde/simplemde.min.css" >
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" >
   <link rel="stylesheet" href="/backend/css/custom.css" >
+   <!--jasny-->
+   <link rel="stylesheet" href="/backend/plugins/jasny-bootstrap/css/jasny-bootstrap.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -59,6 +61,8 @@
 <script src="/backend/plugins/simplemde/simplemde.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/backend/plugins/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+<!-- AdminLTE App -->
 <!-- AdminLTE App -->
 <script src="/backend/js/app.min.js"></script>
 @yield('script')
