@@ -24,4 +24,13 @@ Auth::routes();
 
 Route::get('/home', 'Backend\HomeController@index')->name('home');
 
+Route::put('/backend/post/restore/{post}', [
+    'uses' => 'Backend\PostController@restore',
+    'as'   => 'post.restore'
+]);
+Route::delete('/backend/post/force-destroy/{post}', [
+    'uses' => 'Backend\PostController@forceDestroy',
+    'as'   => 'post.force-destroy'
+]);
+
 Route::resource('/backend/post', 'Backend\PostController');
