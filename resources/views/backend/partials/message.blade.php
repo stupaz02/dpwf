@@ -3,6 +3,11 @@
         {{ session('message') }}
     </div>
 
+@elseif(session('error-message'))
+    <div class="alert alert-danger">
+        {{ session('error-message') }}
+    </div>
+
 @elseif(session('trash-message')) 
     <?php list($message, $postId) = session('trash-message')?>
     {!! Form::open(['method' => 'PUT', 'route' =>['post.restore', $postId]]) !!} 

@@ -48,6 +48,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //return parent::render($request, $exception);
+
+        if ($exception instanceof \Illuminate\Auth\Access\AuthorizationException) {
+           return redirect()->route('categories.index')->with('error-message','You cannot delete default category!');
+        }
         return parent::render($request, $exception);
     }
 }

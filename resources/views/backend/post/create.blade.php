@@ -14,7 +14,7 @@
           <li>
               <a href="{{ url('/home')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
           </li>
-          <li class="active"><a href="{{ route('post.index')}}">Deped Palawan</a></li>
+          <li class="active"><a href="{{ route('post.index')}}">Posts</a></li>
           <li class="active">Add new</li>
       </ol>
     </section>

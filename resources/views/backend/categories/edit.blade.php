@@ -1,35 +1,35 @@
 @extends('layouts.backend.main')
 
-@section('Title','Depedd Palawan | Edit Post')
+@section('Title','Depedd Palawan | Edit category')
 
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-         Website Posts
-        <small>Edit post</small>
+         Categories
+        <small>Edit category</small>
       </h1>
       <ol class="breadcrumb">
           <li>
               <a href="{{ url('/home')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
           </li>
-          <li class="active"><a href="{{ route('post.index')}}">Posts</a></li>
-          <li class="active">Edit post</li>
+          <li class="active"><a href="{{ route('categories.index')}}">Categories</a></li>
+          <li class="active">Edit Category</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
         <div class="row">
-                {!! Form::model($post, [
+                {!! Form::model($category, [
                     'method' => 'PUT',
-                    'route'  => ['post.update', $post->id],
+                    'route'  => ['categories.update', $category->id],
                     'files'  => TRUE,
-                    'id'     => 'post-form'
+                    'id'     => 'categories-form'
                  ]) !!}
          
-          @include('backend.post.form')
+          @include('backend.categories.form')
           {!! Form::close() !!}
         
         </div>
@@ -39,4 +39,4 @@
   </div>
 @endsection
 
-@include('backend.post.script')
+@include('backend.categories.script')

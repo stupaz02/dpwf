@@ -10,7 +10,7 @@ use Intervention\Image\Facades\Image;
 
 class PostController extends BackendController
 {
-    protected $limit = 5;
+  
     protected $uploadPath;
 
 
