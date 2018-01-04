@@ -29,8 +29,20 @@
                         <a href="{{ route('post.create')}}" class="btn btn-success"><i class="fa fa-plus"></i> Add New</a>
                     </div>
                     <div class="pull-right" style="padding:7px 0;">
-                        <a href="?status=all">All</a> |
-                        <a href="?status=trash">Trash</a>
+                        <?php $links = [] ?>
+                        @foreach($statusList as $key => $value)
+                            @if($value)
+                                <?php $selected = Request::get('status') == $key ? 'selected-status' : '' ?>
+                                <?php $links[] = "<a class=\"{$selected}\" href=\"?status={$key}\">" . ucwords($key) . "({$value})</a>" ?>
+                            @endif
+                        @endforeach
+
+                        {!! implode (' | ', $links) !!}
+                        {{--  <a href="?status=all">All</a> |
+                        <a href="?status=published">Published</a> |
+                        <a href="?status=scheduled">Scheduled</a> |
+                        <a href="?status=draft">Draft</a>   |
+                        <a href="?status=trash">Trash</a>  --}}
                     </div>
                 </div>
               <!-- /.box-header -->
@@ -54,7 +66,7 @@
            
               <div class="box-footer clearfix">
                     <div class="pull-left">
-                        {{ $posts->render() }}
+                        {{ $posts->appends( Request::query() )->render() }}
                     </div>
                     
                     <div class="pull-right">

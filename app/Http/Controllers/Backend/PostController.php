@@ -27,19 +27,53 @@ class PostController extends BackendController
      */
     public function index(Request $request)
     {
+        $onlyTrashed = FALSE;
+
         if(($status = $request->get('status')) && $status == 'trash')
         {
             $posts       = Post::onlyTrashed()->with('category','author')->latest()->paginate($this->limit);
             $postCount   = Post::onlyTrashed()->count();
             $onlyTrashed = TRUE;
         }
+        elseif($status == 'published')
+        {
+            $posts       = Post::published()->with('category','author')->latest()->paginate($this->limit);
+            $postCount   = Post::published()->count();
+            
+        }
+        elseif($status == 'scheduled')
+        {
+            $posts       = Post::scheduled()->with('category','author')->latest()->paginate($this->limit);
+            $postCount   = Post::scheduled()->count();
+            
+        }
+        elseif($status == 'draft')
+        {
+            $posts       = Post::draft()->with('category','author')->latest()->paginate($this->limit);
+            $postCount   = Post::draft()->count();
+            
+        }
         else{
             $posts       = Post::with('category','author')->latest()->paginate($this->limit);
             $postCount   = Post::count();
-            $onlyTrashed = FALSE;
+            
         }
+
+        $statusList = $this->statusList();
        
-        return view("backend.post.index", compact('posts','postCount', 'onlyTrashed'));
+        return view("backend.post.index", compact('posts','postCount', 'onlyTrashed', 'statusList'));
+    }
+
+
+    private function statusList()
+    {
+        return [
+            'all' => Post::count(),
+            'published' => Post::published()->count(),
+            'scheduled' => Post::scheduled()->count(),
+            'draft' => Post::draft()->count(),
+            'trash' => Post::onlyTrashed()->count(),
+        ];
     }
 
     /**
@@ -133,11 +167,17 @@ class PostController extends BackendController
      */
     public function update(PostRequest $request, $id)
     {
-        $post = Post::findOrFail($id);
-        $data = $this->handleRequest($request);
+        $post          = Post::findOrFail($id);
+        $oldImage      = $post->image;
+        $data          = $this->handleRequest($request);
         $post->update($data);
 
-        return redirect()->route('post.index')->with('message', 'Your posts was updated successfully!');
+        if($oldImage !== $post->image)
+        {
+            $this->removeImage($oldImage);
+        }
+
+        return redirect()->route('post.index')->with('message', 'Your post was updated successfully!');
 
 
 
@@ -173,7 +213,7 @@ class PostController extends BackendController
         $post = Post::withTrashed()->findOrFail($id);
         $post->restore();
 
-        return redirect()->route('post.index')->with('message','Your post has been moved from the Trash');
+        return redirect()->back()->with('message','Your post has been moved from the Trash');
     }
 
 
@@ -185,6 +225,7 @@ class PostController extends BackendController
             $ext           = substr(strrchr($image, '.'), 1);
             $thumbnail     = str_replace(".{$ext}", "_thumb.{$ext}", $image);
             $thumbnailPath = $this->uploadPath . '/' . $thumbnail;
+
             if (file_exists($imagePath)) unlink($imagePath);
             if (file_exists($thumbnailPath)) unlink($thumbnailPath);
         }

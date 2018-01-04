@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+
 
 class Post extends Model
 {
@@ -60,6 +62,21 @@ class Post extends Model
     public function scopeLatestFirst($query)
     {
         return $this->$query->orderBy('created_at', 'desc');
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where("published_at", "<=", Carbon::now());
+    }
+
+    public function scopeScheduled($query)
+    {
+        return $query->where("published_at", ">", Carbon::now());
+    }
+
+    public function scopeDraft($query)
+    {
+        return $query->whereNull("published_at");
     }
 
     public function getImageUrlAttribute($value)
