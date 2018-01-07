@@ -28,6 +28,12 @@ class User extends Authenticatable
     ];
 
 
+    public function setPasswordAttribute($value)
+    {
+        if (!empty($value)) $this->attributes['password'] = bcrypt($value);
+    }   
+
+
     public function gravatar()
     {
         $email = $this->email;
