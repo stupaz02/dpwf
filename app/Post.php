@@ -27,7 +27,7 @@ class Post extends Model
     public function dateFormatted($showTimes = false)
     {
         $format ="d/m/Y";
-        if ($showTimes) $format = $format . " H:i:s ";
+        if ($showTimes) $format = $format . " H:i:s";
         return $this->created_at->format($format);
     }
 

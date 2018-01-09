@@ -8,6 +8,7 @@ use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest; 
 use App\Http\Requests\UserDestroyRequest; 
 use App\User;
+use App\Post;
 
 
 
@@ -47,7 +48,9 @@ class UsersController extends BackendController
      */
     public function store(UserStoreRequest $request)
     {
-        User::create($request->all());
+        $user = User::create($request->all());
+        $user->attachRole($request->role);
+        
 
         return redirect()->route("users.index")->with('message','New user was created successfully!');
     }
@@ -85,7 +88,12 @@ class UsersController extends BackendController
      */
     public function update(UserUpdateRequest $request, $id)
     {
-        User::findOrFail($id)->update($request->all());
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+
+        $user->detachRoles();
+        $user->attachRole($request->role);
+
 
         return redirect()->route('users.index')->with('message','User was updated successfullly!');
     }
@@ -105,8 +113,19 @@ class UsersController extends BackendController
 
         if($deleteOption == "delete")
         {
-            //delete user posts
-             $user->posts()->withTrashed()->forceDelete();
+            
+            if($user->posts()->withTrashed()->count() > 0)
+            {
+                // remove post iamges
+                foreach($user->posts()->withTrashed()->get(['id']) as $v)
+                {
+                  $post = Post::withTrashed()->findOrFail($v['id']);
+                  $this->removeImage($post->image);
+                }
+              }
+              // delete user posts
+              $user->posts()->withTrashed()->forceDelete();
+                    
             
         }
         elseif($deleteOption =="attribute")

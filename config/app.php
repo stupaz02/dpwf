@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Singapore',
 
     /*
     |--------------------------------------------------------------------------
@@ -140,6 +140,7 @@ return [
 
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Laratrust\LaratrustServiceProvider::class,
         
         /*
          * Laravel Framework Service Providers...
@@ -194,6 +195,7 @@ return [
     */
 
     'aliases' => [
+        'Laratrust'   => Laratrust\LaratrustFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,

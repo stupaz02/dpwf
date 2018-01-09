@@ -13,7 +13,8 @@ class UserUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return !($this->route('user') == config('cms.default_user_id') || 
+                $this->route('user') == auth()->user()->id);
     }
 
     /**
@@ -26,7 +27,8 @@ class UserUpdateRequest extends FormRequest
         return [
             'name' => 'required|',
             'email' => 'email|required|unique:users,email,' . $this->route("user"),
-            'password' => 'required_with:password_confirmed|confirmed'
+            'password' => 'required_with:password_confirmed|confirmed',
+            'role'     => 'required',
         ];
     }
 }

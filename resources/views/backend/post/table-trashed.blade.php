@@ -9,22 +9,36 @@
             </tr>
         </thead>
         <tbody>
+            <?php $request = request(); ?>
            @foreach($posts as $post)
           
                  <tr>
                      <td>
                          {!! Form::open(['style' => 'display:inline-block;','method' => 'PUT', 'route' =>['post.restore', $post->id]])!!}
-                         <button  title ="Restore"  class="btn btn-xs btn-default">
-                         <i class="fa fa-refresh"></i>
-                         </button>
+                           
+                            @if(check_user_permissions($request, "Post@restore", $post->id)) 
+                                <button  title ="Restore"  class="btn btn-xs btn-default">
+                                <i class="fa fa-refresh"></i>
+                                </button>
+                            @else
+                                <button  title ="Restore" onclick="return false" class="btn btn-xs btn-default disabled">
+                                <i class="fa fa-refresh"></i>
+                                </button>
+                            @endif
 
                          {!! Form::close() !!}
 
                          {!! Form::open(['style' => 'display:inline-block;','method' => 'DELETE', 'route' => ['post.force-destroy', $post->id]]) !!}
-                         <button title="Delete Permanent" onclick="return confirm('You are about to delete a post permanently. Are you sure?')" type="submit" class="btn btn-xs btn-danger">
-                         <i class="fa fa-trash"></i>
-                         </button>
-                         {!! Form::close() !!}
+                         @if(check_user_permissions($request, "Post@forceDestroy", $post->id)) 
+                            <button title="Delete Permanent" onclick="return confirm('You are about to delete a post permanently. Are you sure?')" type="submit" class="btn btn-xs btn-danger">
+                            <i class="fa fa-trash"></i>
+                            </button>
+                         @else   
+                            <button title="Delete Permanent" onclick="return false" type="submit" class="btn btn-xs btn-danger disabled">
+                            <i class="fa fa-trash"></i>
+                            </button>
+                        @endif
+                        {!! Form::close() !!}
                      </td>
                      <td>{{ $post->title }}</td>
                      <td>{{ $post->author->name }}</td>

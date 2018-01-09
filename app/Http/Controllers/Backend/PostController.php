@@ -14,7 +14,6 @@ class PostController extends BackendController
     protected $uploadPath;
 
 
-
     public function __construct()
     {
         parent::__construct();
@@ -53,21 +52,28 @@ class PostController extends BackendController
             $postCount   = Post::draft()->count();
             
         }
+        elseif($status == 'own')
+        {
+            $posts       = $request->user()->posts()->with('category','author')->latest()->paginate($this->limit);
+            $postCount   = $request->user()->posts()->count();
+            
+        }
         else{
             $posts       = Post::with('category','author')->latest()->paginate($this->limit);
             $postCount   = Post::count();
             
         }
 
-        $statusList = $this->statusList();
+        $statusList = $this->statusList($request);
        
         return view("backend.post.index", compact('posts','postCount', 'onlyTrashed', 'statusList'));
     }
 
 
-    private function statusList()
+    private function statusList($request)
     {
         return [
+            'own' => $request->user()->posts()->count(),
             'all' => Post::count(),
             'published' => Post::published()->count(),
             'scheduled' => Post::scheduled()->count(),
@@ -217,17 +223,5 @@ class PostController extends BackendController
     }
 
 
-    public function removeImage($image)
-    {
-        if(! empty($image))
-        {
-            $imagePath     = $this->uploadPath . '/' . $image;
-            $ext           = substr(strrchr($image, '.'), 1);
-            $thumbnail     = str_replace(".{$ext}", "_thumb.{$ext}", $image);
-            $thumbnailPath = $this->uploadPath . '/' . $thumbnail;
-
-            if (file_exists($imagePath)) unlink($imagePath);
-            if (file_exists($thumbnailPath)) unlink($thumbnailPath);
-        }
-    }
+   
 }

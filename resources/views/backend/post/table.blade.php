@@ -9,17 +9,32 @@
                            </tr>
                        </thead>
                        <tbody>
+                         <?php $request = request(); ?>
                           @foreach($posts as $post)
                          
                                 <tr>
                                     <td>
                                         {!! Form::open(['method' => 'DELETE', 'route' =>['post.destroy', $post->id]])!!}
-                                        <a href="{{ route('post.edit', $post->id)}}" class="btn btn-xs btn-default">
-                                        <i class="fa fa-edit"></i>
-                                        </a>
-                                        <button  type="submit" class="btn btn-xs btn-danger">
-                                        <i class="fa fa-times"></i>
-                                        </button>
+                                        
+                                            @if(check_user_permissions($request, "Post@edit", $post->id))
+                                                <a href="{{ route('post.edit', $post->id)}}" class="btn btn-xs btn-default">
+                                                <i class="fa fa-edit"></i>
+                                                </a>
+                                            @else
+                                                <a href="{{ route('post.edit', $post->id)}}" onClick="return false" class="btn btn-xs btn-default disabled">
+                                                <i class="fa fa-edit"></i>
+                                                </a>
+                                            @endif  
+                                            
+                                            @if(check_user_permissions($request, "Post@destroy", $post->id))
+                                                <button  type="submit" class="btn btn-xs btn-danger">
+                                                <i class="fa fa-times"></i>
+                                                </button>
+                                            @else    
+                                                <button  type="submit" onClick="return false" class="btn btn-xs btn-danger disabled">
+                                                <i class="fa fa-times"></i>
+                                                </button>
+                                            @endif    
                                         {!! Form::close() !!}
                                     </td>
                                     <td>{{ $post->title }}</td>

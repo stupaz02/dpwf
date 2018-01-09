@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
         //return parent::render($request, $exception);
 
         if ($exception instanceof \Illuminate\Auth\Access\AuthorizationException) {
-           return redirect()->route('categories.index')->with('error-message','You cannot delete default category!');
+           return redirect()->route('post.index')->with('error-message','Access denied');
         }
         return parent::render($request, $exception);
     }

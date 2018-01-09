@@ -45,7 +45,7 @@
                               <input type="radio" name="delete_option" value="delete" checked>  Delete All Content
                             </p>
                             <p>
-                              <input type="radio" name="delete_option" value="delete">  Attribute content to:
+                              <input type="radio" name="delete_option" value="attribute">  Attribute content to:
                               {!! Form::select('selected_user', $users, null)!!}
                             </p>
 

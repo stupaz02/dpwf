@@ -13,7 +13,8 @@ class UserDestroyRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return !($this->route('user') == config('cms.default_user_id') || 
+                $this->route('user') == auth()->user()->id);
     }
 
     /**
