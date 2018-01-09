@@ -88,11 +88,25 @@ class UsersController extends BackendController
      */
     public function update(UserUpdateRequest $request, $id)
     {
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-
+        
+        $data = $request->all();
+        // if password is not empty use bcrypt to hash the password
+        if (!empty($data['password'])) $data['password'] = bcrypt($data['password']);
+        $user  = User::findOrFail($id);
+        $user->update($data);
+     
         $user->detachRoles();
         $user->attachRole($request->role);
+     
+        // $user->detachRoles();
+        // $user->attachRole($request->role);
+        // return redirect("/backend/users")->with("message", "User was updated successfully!");
+        
+        // $user = User::findOrFail($id);
+        // $user->update($request->all());
+
+        // $user->detachRoles();
+        // $user->attachRole($request->role);
 
 
         return redirect()->route('users.index')->with('message','User was updated successfullly!');

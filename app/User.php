@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','slug','bio',
     ];
 
     /**
@@ -36,6 +36,7 @@ class User extends Authenticatable
         if (!empty($value)) $this->attributes['password'] = bcrypt($value);
     }   
 
+   
 
     public function gravatar()
     {

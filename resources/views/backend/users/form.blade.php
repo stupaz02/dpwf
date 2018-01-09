@@ -12,6 +12,15 @@
                 @endif
             </div>
 
+            <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
+                {!! Form::label('slug') !!}
+                {!! Form::text('slug', null,['class' =>'form-control']) !!}
+
+                @if($errors->has('slug'))
+                    <span class="help-block">{{ $errors->first('slug') }}</span>
+                @endif
+            </div>
+
             <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 {!! Form::label('email') !!}
                 {!! Form::text('email', null,['class' =>'form-control']) !!}
@@ -20,6 +29,7 @@
                    <span class="help-block">{{ $errors->first('email') }}</span>
                @endif
             </div>
+          
 
             <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                 {!! Form::label('password') !!}
@@ -50,6 +60,15 @@
                    <span class="help-block">{{ $errors->first('role') }}</span>
                @endif
             </div>
+
+            <div class="form-group }}">
+                    {!! Form::label('bio') !!}
+                    {!! Form::textarea('bio', null,['rows'=>5,'class' =>'form-control']) !!}
+    
+                    @if($errors->has('bio'))
+                        <span class="help-block">{{ $errors->first('bio') }}</span>
+                    @endif
+                </div>
 
            
 
