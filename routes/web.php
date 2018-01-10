@@ -11,9 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/',[
    'uses' => 'FrontController@index',
@@ -23,6 +20,8 @@ Route::get('/',[
 Auth::routes();
 
 Route::get('/home', 'Backend\HomeController@index')->name('home');
+Route::get('/edit-account', 'Backend\HomeController@edit');
+Route::put('/edit-account', 'Backend\HomeController@update');
 
 Route::put('/backend/post/restore/{post}', [
     'uses' => 'Backend\PostController@restore',

@@ -116,7 +116,7 @@ class PostController extends BackendController
         if($request->hasFile('image'))
         {
             $image         = $request->file('image'); 
-            $fileName      = $image->getClientOriginalName();
+            $fileName      = time() .$image->getClientOriginalName();
             $destination   = $this->uploadPath;
 
             $successUploaded = $image->move($destination, $fileName);

@@ -21,8 +21,8 @@
             <div class="box">
               <!-- /.box-header -->
               <div class="box-body ">
-                    <h3>Welcome to MyBlog!</h3>
-                    <p class="lead text-muted">Hallo <b>{{Auth::user()->name}}</b>, Welcome to MyBlog</p>
+                    <h3>Welcome to Deped CMS !</h3>
+                    <p class="lead text-muted">Hallo <b>{{Auth::user()->name}}</b></p>
 
                     <h4>Get started</h4>
                     <p><a href="{{route('post.create')}}" class="btn btn-primary">Write your first blog post</a> </p>
