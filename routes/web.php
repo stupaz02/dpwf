@@ -13,8 +13,8 @@
 
 
 Route::get('/',[
-   'uses' => 'FrontController@index',
-   'as'  =>'front.index'
+   'uses' => 'PostController@index',
+//    'as'  =>'front.index'
 ]);
 
 Auth::routes();

@@ -27,7 +27,7 @@ class PostRequest extends FormRequest
         $rules = [
             'title'        => 'required',
             'slug'         => 'required|unique:posts',
-            'excerpt'      => 'required|max:250',
+            'excerpt'      => 'required|max:1000',
             'body'         => 'required',
             'published_at' => 'nullable|date_format:Y-m-d H:i:s',
             'category_id'  => 'required',

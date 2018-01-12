@@ -1,0 +1,29 @@
+
+
+
+#featured-post
+{
+    // height: 95vh;
+    padding:10rem 0;
+    background-color:#699f5f;  
+    text-align: center;
+    
+
+   transform: skewY(-7deg);
+
+
+   & > *
+   {
+     transform: skewY(7deg);
+   }
+
+   .heading-featured
+   {
+    font-size:1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    color:#f1c633;
+    margin-bottom: 6rem;
+   }
+}

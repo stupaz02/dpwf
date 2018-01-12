@@ -26,7 +26,7 @@ class AlterUserTableAddSlugColumn extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('slug');
+            $table->string('slug')->default(null);
         });
     }
 }

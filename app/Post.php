@@ -61,7 +61,7 @@ class Post extends Model
 
     public function scopeLatestFirst($query)
     {
-        return $this->$query->orderBy('created_at', 'desc');
+        return $query->orderBy('published_at', 'desc');
     }
 
     public function scopePublished($query)
@@ -109,6 +109,9 @@ class Post extends Model
         return $imageUrl;
     }
 
+
+
+  
 
    
 

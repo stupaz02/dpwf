@@ -11,6 +11,8 @@ try {
     window.$ = window.jQuery = require('jquery');
     
     window.Popper = require('popper.js');
+    window.AOS = require('AOS');
+    AOS.init();
     require('bootstrap');
 } catch (e) {}
 
