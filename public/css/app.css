@@ -12953,12 +12953,12 @@ a.text-dark:hover {
   background-color: #699f5f;
   text-align: center;
   -webkit-transform: skewY(-7deg);
-          transform: skewY(-7deg);
+  transform: skewY(-7deg);
 }
 
 #featured-post > * {
   -webkit-transform: skewY(7deg);
-          transform: skewY(7deg);
+  transform: skewY(7deg);
 }
 
 #featured-post .heading-featured {
@@ -12968,6 +12968,28 @@ a.text-dark:hover {
   display: inline-block;
   color: #f1c633;
   margin-bottom: 6rem;
+}
+
+#featured-post .img-box {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 200px;
+  border: 2px solid #f1c633;
+}
+
+#featured-post .img-box img {
+  max-width: 100%;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+}
+
+#featured-post .img-box:hover img {
+  border: 2px solid #f1c633;
+  -webkit-transform: scale(1.3, 1.3);
+  transform: scale(1.3, 1.3);
 }
 
 body {

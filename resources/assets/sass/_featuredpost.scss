@@ -7,16 +7,19 @@
     padding:10rem 0;
     background-color:#699f5f;  
     text-align: center;
-    
-
-   transform: skewY(-7deg);
+ 
+   -webkit-transform: skewY(-7deg);
+ 
+           transform: skewY(-7deg);
 
 
    & > *
    {
-     transform: skewY(7deg);
+     -webkit-transform: skewY(7deg);
+             transform: skewY(7deg);
    }
 
+ 
    .heading-featured
    {
     font-size:1.5rem;
@@ -26,4 +29,40 @@
     color:#f1c633;
     margin-bottom: 6rem;
    }
+  
+   .img-box
+   {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 200px;
+    border: 2px solid #f1c633;
+    
+     
+   }
+
+    .img-box img
+   {
+   
+    max-width: 100%;
+    
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+   
+   }
+
+   .img-box:hover img
+
+   {
+    border: 2px solid #f1c633;
+     -webkit-transform: scale(1.3,1.3);
+             transform: scale(1.3,1.3);
+            
+   }
+ 
+
+
+
 }

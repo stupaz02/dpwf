@@ -14,6 +14,9 @@ class Post extends Model
     protected $fillable = ['title','slug', 'excerpt', 'body', 'published_at', 'category_id', 'image'];
     protected $dates = ['published_at'];
 
+
+   
+
     public function author()
     {
         return $this->belongsTo(User::class);
