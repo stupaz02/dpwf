@@ -108,4 +108,3 @@
 
    
     
-@include('front.script')

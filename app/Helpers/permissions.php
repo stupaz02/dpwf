@@ -29,7 +29,8 @@
              $classesMap        = [
                   'Post'       => 'post',
                   'Categories' => 'category',
-                  'Users'      => 'user'
+                  'Users'      => 'user',
+                  'Events'     => 'events'
              ];
   
              foreach($crudPermissionMap as $permission => $methods)

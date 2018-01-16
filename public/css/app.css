@@ -12992,6 +12992,33 @@ a.text-dark:hover {
   transform: scale(1.3, 1.3);
 }
 
+#upcoming-events {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+#upcoming-events .card-body {
+  background-color: #699f5f;
+  color: #343a40;
+}
+
+#upcoming-events .card-body .fc-title {
+  color: black;
+  font-weight: 500;
+}
+
+#upcoming-events a.fc-more {
+  color: #fff;
+}
+
+#upcoming-events .fc-unthemed .fc-today {
+  background-color: rgba(18, 18, 19, 0.4);
+}
+
+#upcoming-events .fc-day-number {
+  color: #197fd3;
+}
+
 body {
   min-height: 1000px;
   font-family: "Poppins", sans-serif;

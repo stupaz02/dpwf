@@ -20,6 +20,12 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
+        @if (check_user_permissions(request(),"Categories@index"))
+          <li><a href="{{ route('categories.index')}}"><i class="fa fa-folder"></i> <span>Categories</span></a></li>
+        @endif
+        @if (Auth::user()->hasRole('admin'))
+          <li><a href="{{ route('events.index')}}"><i class="fa fa-calendar" aria-hidden="true"></i> <span>Events</span></a></li>
+        @endif
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pencil"></i>
@@ -33,9 +39,6 @@
             <li><a href="{{ route('post.create')}}"><i class="fa fa-circle-o"></i> Add New</a></li>
           </ul>
         </li>
-        @if (check_user_permissions(request(),"Categories@index"))
-          <li><a href="{{ route('categories.index')}}"><i class="fa fa-folder"></i> <span>Categories</span></a></li>
-        @endif
 
         @if (check_user_permissions(request(),"Users@index"))
           <li><a href="{{ route('users.index')}}"><i class="fa fa-users"></i> <span>Users</span></a></li>

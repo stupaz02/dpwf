@@ -17,6 +17,8 @@ Route::get('/',[
 //    'as'  =>'front.index'
 ]);
 
+Route::resource('/backend/events', 'Backend\EventsController');
+
 Auth::routes();
 
 Route::get('/home', 'Backend\HomeController@index')->name('home');

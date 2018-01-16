@@ -1,0 +1,31 @@
+#upcoming-events
+{
+    margin-top: 10rem;
+    margin-bottom:5rem;
+
+
+    .card-body
+    {
+        background-color:#699f5f;  
+        color:#343a40;
+
+        .fc-title
+        {
+            color:black;
+            font-weight: 500;
+        }
+    }
+    a.fc-more
+    {
+        color:#fff;
+    }
+
+    .fc-unthemed .fc-today
+    {
+        background-color: rgba(18, 18, 19, 0.4);
+    }
+    .fc-day-number
+    {
+        color:rgb(25, 127, 211);
+    }
+}

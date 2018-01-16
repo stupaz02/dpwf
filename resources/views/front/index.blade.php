@@ -4,7 +4,9 @@
     
     @include('front.latest-posts')
     @include('front.featured-posts')
-    {{--  @include('front.quick-links')  --}}
+    @include('front.events')
+    
+   
 
    
 @endsection

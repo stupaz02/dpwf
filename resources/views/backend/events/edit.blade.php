@@ -1,36 +1,35 @@
 @extends('layouts.backend.main')
 
-@section('Title','Depedd Palawan | Edit account')
+@section('Title','Depedd Palawan | Edit category')
 
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-         Account
-        <small>Edit account</small>
+         Events
+        <small>Edit event</small>
       </h1>
       <ol class="breadcrumb">
           <li>
               <a href="{{ url('/home')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
           </li>
-          <li class="active"><a href="{{ route('users.index')}}">Account</a></li>
-          <li class="active">Edit account</li>
+          <li class="active"><a href="{{ route('categories.index')}}">Events</a></li>
+          <li class="active">Edit event</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
         <div class="row">
-          @include('backend.partials.message')
-          
-                {!! Form::model($user, [
+                {!! Form::model($event, [
                     'method' => 'PUT',
-                    'url'  => '/edit-account',
-                    'id'     => 'user-form'
+                    'route'  => ['events.update', $event->id],
+                    'files'  => TRUE,
+                    'id'     => 'post-form'
                  ]) !!}
          
-          @include('backend.users.form',['hideRoleDropdown' => true])
+          @include('backend.events.form')
           {!! Form::close() !!}
         
         </div>
@@ -40,3 +39,5 @@
   </div>
 @endsection
 
+
+@include('backend.events.script')
