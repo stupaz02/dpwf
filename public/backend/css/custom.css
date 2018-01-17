@@ -23,3 +23,8 @@ a.selected-status
     font-weight: bold;
     
 }
+
+thead *
+{
+    font-weight: 800;
+}

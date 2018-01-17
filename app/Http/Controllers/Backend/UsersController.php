@@ -109,7 +109,7 @@ class UsersController extends BackendController
         // $user->attachRole($request->role);
 
 
-        return redirect()->route('users.index')->with('message','User was updated successfullly!');
+        return redirect()->route('users.index')->with('message','User was updated successfully!');
     }
 
     /**
@@ -148,7 +148,7 @@ class UsersController extends BackendController
         }
       
         $user->delete();
-        return redirect()->route('users.index')->with('message','User was deleted successfullly!');
+        return redirect()->route('users.index')->with('message','User was deleted successfully!');
     }
 
     public function confirm(UserDestroyRequest $request, $id)

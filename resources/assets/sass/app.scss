@@ -30,7 +30,6 @@ $color-primary-light:#7ed56f;
 $color-primary-dark:#28b485;
 
 
-
 body{
     //  margin-top: 58px;
      min-height: 1000px;
@@ -38,11 +37,16 @@ body{
     //  font-family: "Lato", sans-serif;
      line-height: 1.4;
      color:#fff;
+
+
+
+
+}
+
      
-     
-
-
-
+tr .b-header
+{
+    font-weight: 800;
 }
 
 // Front Design

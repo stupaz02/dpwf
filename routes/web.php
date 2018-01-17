@@ -18,6 +18,7 @@ Route::get('/',[
 ]);
 
 Route::resource('/backend/events', 'Backend\EventsController');
+Route::resource('/backend/slides', 'Backend\SlideController');
 
 Auth::routes();
 

@@ -17,7 +17,7 @@ class EventsController extends BackendController
      */
     public function index()
     {   
-        $events = Event::orderBy('title')->paginate($this->limit);
+        $events = Event::orderBy('created_at','desc')->paginate($this->limit);
         $eventsCount = Event::count();
 
         return view("backend.events.index", compact('events','eventsCount'));
@@ -81,7 +81,7 @@ class EventsController extends BackendController
     {
         Event::findOrFail($id)->update($request->all());
 
-        return redirect()->route('events.index')->with('message','Event was updated successfullly!');
+        return redirect()->route('events.index')->with('message','Event was updated successfully!');
     }
 
     /**
@@ -96,6 +96,6 @@ class EventsController extends BackendController
 
         $event->delete();
         
-        return redirect()->route('events.index')->with('message','Event was deleted successfullly!');
+        return redirect()->route('events.index')->with('message','Event was deleted successfully!');
     }
 }

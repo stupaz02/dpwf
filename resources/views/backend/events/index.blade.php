@@ -41,7 +41,15 @@
                 @endif
               </div>
               <!-- /.box-body -->
-                  
+              <div class="box-footer clearfix">
+                <div class="pull-left">
+                    {{ $events->appends( Request::query() )->render() }}
+                </div>
+                
+                <div class="pull-right">
+                        <small>{{$eventsCount}} {{ str_plural('Item', $eventsCount)}}</small>
+                </div>
+          </div>
             </div>
             <!-- /.box -->
           </div>

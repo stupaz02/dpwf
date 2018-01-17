@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SlideStoreRequest; 
+use Intervention\Image\Facades\Image;
+use App\Slide;
+
 
 class SlideController extends BackendController
 {
@@ -14,7 +18,10 @@ class SlideController extends BackendController
      */
     public function index()
     {
-        return view("backend.slides.index");
+         $slides = Slide::orderBy('created_at','desc')->paginate($this->limit);
+         $slidesCount = Slide::count();
+
+         return view("backend.slides.index", compact('slides','slidesCount'));
     }
 
     /**
@@ -24,7 +31,9 @@ class SlideController extends BackendController
      */
     public function create()
     {
-        //
+        $slide = new Slide();
+
+        return view("backend.slides.create", compact('slide'));
     }
 
     /**
@@ -33,9 +42,47 @@ class SlideController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SlideStoreRequest $request)
     {
-        //
+        
+        $data = $this->handleRequest($request);
+        
+        Slide :: create($data);
+
+        //dd('slide store clicked');
+        return redirect()->route('slides.index')->with('message', 'Slide was created successfully!');
+    }
+
+
+    private function handleRequest($request)
+    {
+        $data = $request->all();
+
+        if($request->hasFile('image'))
+        {
+            $image         = $request->file('image'); 
+            $fileName      = time() .$image->getClientOriginalName();
+            $destination   = $this->uploadPath;
+
+            $successUploaded = $image->move($destination, $fileName);
+
+            if($successUploaded)
+            {
+                $width = config('cms.image.thumbnail.width');
+                $height = config('cms.image.thumbnail.height');
+                $extension = $image->getClientOriginalExtension();
+                $thumbnail = str_replace(".{$extension}","_thumb.{$extension}", $fileName);
+
+                 Image::make($destination . '/' .$fileName)
+                 ->resize($width, $height)
+                 ->save($destination . '/' . $thumbnail);
+            }
+
+            $data['image'] = $fileName;
+
+        }
+
+        return $data;
     }
 
     /**
@@ -57,7 +104,9 @@ class SlideController extends BackendController
      */
     public function edit($id)
     {
-        //
+        $slide = Slide::findOrFail($id);
+
+        return view("backend.slides.edit", compact('slide'));
     }
 
     /**
@@ -69,7 +118,17 @@ class SlideController extends BackendController
      */
     public function update(Request $request, $id)
     {
-        //
+        $slide = Slide::findOrFail($id);
+        $oldImage = $slide->image;
+        $data    = $this->handleRequest($request);
+        $slide->update($data);
+        
+        if($oldImage !== $slide->image)
+        {
+            $this->removeImage($oldImage);
+        }
+
+        return redirect()->route('slides.index')->with('message', 'Slide was updated successfully!');
     }
 
     /**
@@ -80,6 +139,12 @@ class SlideController extends BackendController
      */
     public function destroy($id)
     {
-        //
+        $slide = Slide::findorFail($id);
+
+        $slide->delete();
+
+        $this->removeImage($slide->image);
+
+        return redirect()->route('slides.index')->with('message','Slide was deleted successfully!');
     }
 }

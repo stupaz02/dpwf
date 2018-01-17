@@ -41,7 +41,7 @@
         </li>
 
         @if (Auth::user()->hasRole('admin'))
-        <li><a href="{{ route('events.index')}}"><i class="fa fa-sliders" aria-hidden="true"></i> <span>Slides</span></a></li>
+        <li><a href="{{ route('slides.index')}}"><i class="fa fa-sliders" aria-hidden="true"></i> <span>Slides</span></a></li>
       @endif
 
         @if (check_user_permissions(request(),"Users@index"))
