@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\EventStoreRequest; 
-use App\Http\Requests\UpdateRequest; 
-use App\Event;
-use Auth;
+use App\Http\Controllers\Controller;
 
-class EventsController extends BackendController
+class SlideController extends BackendController
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +13,8 @@ class EventsController extends BackendController
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $events = Event::orderBy('title')->paginate($this->limit);
-        $eventsCount = Event::count();
-
-        return view("backend.events.index", compact('events','eventsCount'));
+    {
+        return view("backend.slides.index");
     }
 
     /**
@@ -29,9 +23,8 @@ class EventsController extends BackendController
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $event = new Event();
-        return view('backend.events.e-create', compact('event'));
+    {
+        //
     }
 
     /**
@@ -40,10 +33,9 @@ class EventsController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EventStoreRequest $request)
+    public function store(Request $request)
     {
-        Event::create($request->all());
-        return redirect()->route("events.index")->with('message','New event was created successfully!');
+        //
     }
 
     /**
@@ -54,7 +46,7 @@ class EventsController extends BackendController
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -65,9 +57,7 @@ class EventsController extends BackendController
      */
     public function edit($id)
     {
-        $event = Event::findOrFail($id);
-
-        return view("backend.events.edit", compact('event'));
+        //
     }
 
     /**
@@ -79,9 +69,7 @@ class EventsController extends BackendController
      */
     public function update(Request $request, $id)
     {
-        Event::findOrFail($id)->update($request->all());
-
-        return redirect()->route('events.index')->with('message','Event was updated successfullly!');
+        //
     }
 
     /**
@@ -92,10 +80,6 @@ class EventsController extends BackendController
      */
     public function destroy($id)
     {
-        $event = Event::findOrFail($id);
-
-        $event->delete();
-        
-        return redirect()->route('events.index')->with('message','Event was deleted successfullly!');
+        //
     }
 }
