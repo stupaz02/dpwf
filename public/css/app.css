@@ -12948,14 +12948,6 @@ a.text-dark:hover {
   padding: 0 18px;
 }
 
-thead * {
-  font-weight: 800;
-}
-
-thead * {
-  font-weight: 800;
-}
-
 #featured-post {
   padding: 10rem 0;
   background-color: #699f5f;
@@ -13028,7 +13020,7 @@ thead * {
 }
 
 thead * {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 body {
@@ -13036,10 +13028,6 @@ body {
   font-family: "Poppins", sans-serif;
   line-height: 1.4;
   color: #fff;
-}
-
-tr .b-header {
-  font-weight: 800;
 }
 
 #front-nav {

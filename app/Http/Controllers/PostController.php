@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Post;
 use Calendar;
 use App\Event;
+use App\Slide;
 
 class PostController extends Controller
 {
     
     public function index()
     {
+        $photos = Slide::all();
         $announcements = Post::where('category_id', 3)->latestFirst()->take(4)->get();
         $advisories = Post::where('category_id', 4)->latestFirst()->take(4)->get();
         $memoranda = Post::whereIn('category_id', [1,2])->latestFirst()->take(4)->get();
@@ -38,6 +40,6 @@ class PostController extends Controller
         $calendar = Calendar::addEvents($events);
   
        
-        return view('front.index', compact('announcements','advisories','memoranda','features','calendar'));
+        return view('front.index', compact('announcements','advisories','memoranda','features','calendar','photos'));
     }
 }

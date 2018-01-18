@@ -14,7 +14,7 @@
 
             <div class="form-group {{ $errors->has('caption') ? 'has-error' : '' }}">
                 {!! Form::label('caption') !!}
-                {!! Form::text('caption', null,['class' =>'form-control']) !!}
+                {!! Form::textarea('caption', null,['class' =>'form-control']) !!}
 
                 @if($errors->has('caption'))
                    <span class="help-block">{{ $errors->first('caption') }}</span>

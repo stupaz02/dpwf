@@ -39,4 +39,4 @@
   </div>
 @endsection
 
-{{--  @include('backend.categories.script')  --}}
+@include('backend.slides.script')
