@@ -2,7 +2,7 @@
         <thead>
             <tr>
                 <td width="120">Action</td>
-                <td>Event Name</td>
+                <td>Event Title</td>
                 <td>Start Date</td>
                 <td>End Date</td>
                 {{--  <td width="120">Events Count</td>  --}}

@@ -142,6 +142,9 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laratrust\LaratrustServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        
+
         
         /*
          * Laravel Framework Service Providers...
@@ -197,6 +200,7 @@ return [
 
     'aliases' => [
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Laratrust'   => Laratrust\LaratrustFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Form' => Collective\Html\FormFacade::class,

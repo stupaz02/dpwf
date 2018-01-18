@@ -34,7 +34,7 @@
       </button>
 
       <a href="/" class="navbar-brand" id="logo">
-       <img src="{{ asset('img/DepedLR.png') }}" alt="" width="90" height="90">
+       <img src="{{ asset('img/DepedLR.png') }}" alt="" width="80" height="80">
       
       </a>
       
@@ -42,7 +42,7 @@
       <div class="collapse navbar-collapse" id="navbar2">
            <ul class="navbar-nav ml-5 mr-auto ">
                <li class="navbar-item">
-                   <a href="" class=" active nav-link text-uppercase"><i class="fa fa-home  mr-1" aria-hidden="true" id="dropdown"></i> Home</a>
+                   <a href="/" class=" active nav-link text-uppercase"><i class="fa fa-home  mr-1" aria-hidden="true" id="dropdown"></i> Home</a>
                </li>
                <li class="navbar-item dropdown">
                    <a href="#" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o  mr-1" aria-hidden="true" id="dropdown"></i> About Us</a>

@@ -22,6 +22,8 @@
         @include('layouts.frontend.navbar')
 
         @yield('content')
+
+        @include('layouts.frontend.footer')
        
     </div>  
     
@@ -32,7 +34,7 @@
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-{!! $calendar->script() !!}
+
     @yield('script')
 </body>
 </html>

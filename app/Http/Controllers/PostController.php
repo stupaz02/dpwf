@@ -42,4 +42,11 @@ class PostController extends Controller
        
         return view('front.index', compact('announcements','advisories','memoranda','features','calendar','photos'));
     }
+
+    public function show ($id)
+    {
+        $post = Post::findOrFail($id);
+
+        return view("front.show", compact('post'));
+    }
 }

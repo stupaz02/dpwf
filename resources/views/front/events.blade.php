@@ -27,4 +27,6 @@
 
 
 
-
+@section('script')
+{!! $calendar->script() !!}
+@endsection

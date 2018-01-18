@@ -14,7 +14,12 @@
 
 Route::get('/',[
    'uses' => 'PostController@index',
-//    'as'  =>'front.index'
+   'as'  =>'front.index'
+]);
+
+Route::get('/post/{post}',[
+   'uses' => 'PostController@show',
+    'as'  => 'front.show'
 ]);
 
 Route::resource('/backend/events', 'Backend\EventsController');
