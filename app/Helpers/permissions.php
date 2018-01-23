@@ -30,7 +30,8 @@
                   'Post'       => 'post',
                   'Categories' => 'category',
                   'Users'      => 'user',
-                  'Events'     => 'events'
+                  'Events'     => 'events',
+                  'Slide'     => 'slides'
              ];
   
              foreach($crudPermissionMap as $permission => $methods)

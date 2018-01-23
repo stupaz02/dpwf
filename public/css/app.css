@@ -13030,12 +13030,23 @@ thead * {
 }
 
 #show-post {
+  margin-top: 1rem;
   margin-bottom: 20rem;
 }
 
 #show-post .show-container {
   color: #343a40;
   text-align: justify;
+}
+
+#show-post .show-container .card-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+#show-post .box-shadow {
+  -webkit-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
 body {

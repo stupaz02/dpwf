@@ -22,7 +22,7 @@
                                     </div>
                                     <div class="latest-post-title  clearfix ">
                                         <div id="post-descript" >
-                                        <a href="{{ route('front.show', $a->id)}}">
+                                        <a href="{{ route('front.show', $a->slug)}}">
                                             <h1 class="h6 text-justify font-weight-bold  pxy">{{ str_limit($a->title, 50) }}</h1>
                                             <p class="h6  text-justify pxy"> {{ str_limit($a->excerpt, 50) }}</p>
                                         </a>
@@ -54,7 +54,7 @@
                                </div>
                                <div class="latest-post-title  clearfix ">
                                  <div id="post-descript" >
-                                <a href="{{ route('front.show', $adv->id)}}">
+                                <a href="{{ route('front.show', $adv->slug)}}">
                                     <h1  class="h6 text-justify font-weight-bold  pxy">{{ str_limit($adv->title, 50) }}</h1>
                                     <p class="h6 text-justify pxy"> {{ str_limit($adv->excerpt, 50) }}</p>
                                 </a>
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="latest-post-title  clearfix ">
                                 <div id="post-descript" >
-                                    <a href="{{ route('front.show', $memo->id )}}">
+                                    <a href="{{ route('front.show', $memo->slug )}}">
                                         <h1 class="h6  text-justify font-weight-bold  pxy">{{ str_limit($memo->title, 50) }}</h1>
                                         <p class="h6  text-justify pxy"> {{ str_limit($memo->excerpt, 50) }}</p>
                                     </a>

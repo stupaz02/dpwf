@@ -1,6 +1,12 @@
+@section('styles')
+   @include('backend.partials.style')
+@endsection
+
 
 @section('script')
+@include('backend.partials.script')
 <script type="text/javascript">
+     
       $('ul.pagination').addClass('no-margin pagination-sm');
 
 
@@ -16,8 +22,9 @@
               slugInput.val(theSlug);
       });
 
-      var simplemde1 = new SimpleMDE({ element: $("#excerpt")[0] });
-      var simplemde2 = new SimpleMDE({ element: $("#body")[0] });
+       // var simplemde1 = new SimpleMDE({ element: $("#excerpt")[0] });
+        //var simplemde2 = new SimpleMDE({ element: $("#body")[0] });
+       
 
 
       $('#published_at').datetimepicker({
@@ -31,5 +38,7 @@
           $('#post-form').submit();
          
       });
+
+      
 </script>
 @endsection

@@ -17,7 +17,7 @@
                     <img class="d-block w-100 img-fluid" src="{{ $photo->image_url }}" alt="{{ $photo->title }}">
                 <div class="carousel-caption d-none d-md-block" data-aos="zoom-in-up">
                     <h3>{{ $photo->title }}</h3>
-                    {!! Markdown::convertToHtml($photo->caption) !!}
+                    {!! $photo->caption !!}
                     {{--  {!! Markdown::convertToHtml (str_limit($f->excerpt, 300))  !!}  --}}
                 </div>  
                 </div><!--/container-->

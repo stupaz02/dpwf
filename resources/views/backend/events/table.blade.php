@@ -19,15 +19,15 @@
                          <i class="fa fa-edit"></i>
                          </a>
 
-                         @if($event->id == config('cms.default_category_id'))
-                             <button  type="submit" onclick="return false" class="btn btn-xs btn-danger disabled">
+                         {{--  @if($event->id == config('cms.default_category_id'))  --}}
+                             {{--  <button  type="submit" onclick="return false" class="btn btn-xs btn-danger disabled">
                                  <i class="fa fa-times"></i>
-                             </button>
-                         @else
+                             </button>  --}}
+                         {{--  @else  --}}
                              <button  type="submit" onclick="return confirm('Are you sure?')" class="btn btn-xs btn-danger">
                                  <i class="fa fa-times"></i>
                              </button>
-                         @endif
+                         {{--  @endif  --}}
                       
                          {!! Form::close() !!}
                      </td>

@@ -47,6 +47,11 @@ class PermissionsTableSeeder extends Seeder
         $crudEvents = new Permission();
         $crudEvents->name = "crud-events";
         $crudEvents->save();
+        
+        //$crudSlide
+        $crudSlides = new Permission();
+        $crudSlides->name = "crud-slides";
+        $crudSlides->save();
 
 
         //attach roles permissions
@@ -55,11 +60,11 @@ class PermissionsTableSeeder extends Seeder
         $editor = Role::whereName('editor')->first();
         $author = Role::whereName('author')->first();
 
-        $admin->detachPermissions([$crudPost,$updateOthersPost,$deleteOthersPost,$crudCategory,$crudUser,$crudEvents]);
-        $admin->attachPermissions([$crudPost,$updateOthersPost,$deleteOthersPost,$crudCategory,$crudUser,$crudEvents]);
+        $admin->detachPermissions([$crudPost,$updateOthersPost,$deleteOthersPost,$crudCategory,$crudUser,$crudEvents,$crudSlides]);
+        $admin->attachPermissions([$crudPost,$updateOthersPost,$deleteOthersPost,$crudCategory,$crudUser,$crudEvents,$crudSlides]);
 
-        $editor->detachPermissions([$crudPost,$updateOthersPost,$deleteOthersPost,$crudCategory,$crudEvents]);
-        $editor->attachPermissions([$crudPost,$updateOthersPost,$deleteOthersPost,$crudCategory,$crudEvents]);
+        $editor->detachPermissions([$crudPost,$updateOthersPost,$deleteOthersPost,$crudCategory,$crudEvents,$crudSlides]);
+        $editor->attachPermissions([$crudPost,$updateOthersPost,$deleteOthersPost,$crudCategory,$crudEvents,$crudSlides]);
 
         $author->detachPermission($crudPost);      
         $author->attachPermission($crudPost);

@@ -6,15 +6,39 @@
    <section id ="show-post">
       <div class="container">
             <div class="row">
-                <div class="col-md-10 show-container">
-                     <h1 class="heading-title"> {{ $post->title}}</h1>
-                    {{--  {{ $post->body}}  --}}
-                    {!! Markdown::convertToHtml( $post->body) !!}
+                <div class="col-md-10 show-container container">
+                     <div class="d-flex align-items-center p-3 my-3 text-white-50 card-active rounded box-shadow">
+                      <div class="">
+                        <h6 class="mb-0 text-white">{{ $post->title }}</h6>
+                       
+                      </div>
+                    </div>
+
+                     <div class="card box-shadow" style="max-width: 65rem;">   
+                       @if($post->image_url)
+                        <img class="card-img-top img-fluid" src="{{ $post->image_url}}" style="height:300px;" alt="Card image cap">         
+                       @endif
+                        <div class="card-body">
+                        
+                        {!!$post->body !!}
+                        </div>
+                        <div class="card-footer">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $post->created_at->diffForHumans() }}
+                        </div>
+                    </div>
+                   
+
+  
                 </div>
-                <div class="col-md-2">
-                    {{--  {{ $post->category->title}}  --}}
-
-
+                <div class="col-md-2 show-container">
+                  <div class="container">
+                    <div class="d-flex align-items-center p-2 my-3  rounded box-shadow">
+                      <div class="">
+                        <h6 class="mb-0 text-white">Download</h6>
+                       
+                      </div>
+                    </div>
+                 </div>
                    
                 </div>
             </div>

@@ -15,7 +15,7 @@
                         <figure><img class=" img-fluid align-self-center mr-3" style="width:300px; height:200px;" src="{{$f->image_url}}" alt="Generic placeholder image"></figure>
                         </div>
                         <div class="media-body">
-                            <a href="{{ route('front.show', $f->id)}}">
+                            <a href="{{ route('front.show', $f->slug)}}">
                                 <h5 class="mt-0 ml-3 mb-3 text-justify font-weight-bold">{{ $f->title }}</h5>
                                 <div class="mb-2 ml-3 text-justify">{!! Markdown::convertToHtml (str_limit($f->excerpt, 300))  !!}</div>
                             </a>

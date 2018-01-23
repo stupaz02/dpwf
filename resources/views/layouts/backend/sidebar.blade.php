@@ -23,7 +23,7 @@
         @if (check_user_permissions(request(),"Categories@index"))
           <li><a href="{{ route('categories.index')}}"><i class="fa fa-folder"></i> <span>Categories</span></a></li>
         @endif
-        @if (Auth::user()->hasRole('admin'))
+         @if (check_user_permissions(request(),"Events@index"))
           <li><a href="{{ route('events.index')}}"><i class="fa fa-calendar" aria-hidden="true"></i> <span>Events</span></a></li>
         @endif
         <li class="treeview">
@@ -40,7 +40,7 @@
           </ul>
         </li>
 
-        @if (Auth::user()->hasRole('admin'))
+     @if (check_user_permissions(request(),"Slide@index"))
         <li><a href="{{ route('slides.index')}}"><i class="fa fa-sliders" aria-hidden="true"></i> <span>Slides</span></a></li>
       @endif
 

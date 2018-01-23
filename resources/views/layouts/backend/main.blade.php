@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="/backend/css/custom.css" >
    <!--jasny-->
    <link rel="stylesheet" href="/backend/plugins/jasny-bootstrap/css/jasny-bootstrap.min.css">
+   @yield('styles')
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -56,7 +57,9 @@
 <!-- jQuery 2.2.3 -->
 <script src="/backend/js/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
+
 <script src="/backend/js/bootstrap.min.js"></script>
+
 <script src="/backend/plugins/simplemde/simplemde.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
@@ -65,5 +68,8 @@
 <!-- AdminLTE App -->
 <script src="/backend/js/app.min.js"></script>
 @yield('script')
+
+  
+
 </body>
 </html>
