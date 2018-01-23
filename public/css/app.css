@@ -13050,7 +13050,7 @@ thead * {
 }
 
 body {
-  min-height: 1000px;
+  min-height: 700px;
   font-family: "Poppins", sans-serif;
   line-height: 1.4;
   color: #fff;
@@ -13308,6 +13308,10 @@ header a.dropdown-item:hover {
   display: inline-block;
   color: #f1c633;
   margin-bottom: 6rem;
+}
+
+footer {
+  margin-top: 10rem;
 }
 
 footer h3 {

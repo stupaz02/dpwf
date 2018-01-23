@@ -36,7 +36,7 @@ $color-primary-dark:#28b485;
 
 body{
     //  margin-top: 58px;
-     min-height: 1000px;
+     min-height: 700px;
      font-family: "Poppins", sans-serif;
     //  font-family: "Lato", sans-serif;
      line-height: 1.4;
@@ -404,6 +404,8 @@ header
 
 footer
 {
+    margin-top: 10rem;
+
     h3
         {
             font-family: "Poppins", sans-serif;
@@ -472,6 +474,10 @@ footer
 {
     background: $card-active;
 }
+
+
+   
+
 
 
 

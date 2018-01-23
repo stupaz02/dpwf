@@ -17,7 +17,7 @@
                         <div class="media-body">
                             <a href="{{ route('front.show', $f->slug)}}">
                                 <h5 class="mt-0 ml-3 mb-3 text-justify font-weight-bold">{{ $f->title }}</h5>
-                                <div class="mb-2 ml-3 text-justify">{!! Markdown::convertToHtml (str_limit($f->excerpt, 300))  !!}</div>
+                                <div class="mb-2 ml-3 text-justify">{{ $f->excerpt, 300 }}</div>
                             </a>
                         </div>
                     </div>
