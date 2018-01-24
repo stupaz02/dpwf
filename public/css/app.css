@@ -13049,6 +13049,15 @@ thead * {
           box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
+#search {
+  color: #343a40;
+}
+
+#search .card-header,
+#search .card-title {
+  font-size: 1rem;
+}
+
 body {
   min-height: 700px;
   font-family: "Poppins", sans-serif;

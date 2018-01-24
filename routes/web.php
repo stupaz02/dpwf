@@ -17,7 +17,12 @@ Route::get('/',[
    'as'  =>'front.index'
 ]);
 
-Route::get('/post/{post}',[
+Route::get('/search',[
+    'uses' => 'PostController@search',
+    'as'   => 'search'
+]);
+
+Route::get('/post/{pid}',[
    'uses' => 'PostController@show',
     'as'  => 'front.show'
 ]);

@@ -112,6 +112,20 @@ class Post extends Model
         return $imageUrl;
     }
 
+    public function scopeFilter ($query, $term)
+    {
+
+          
+        if ($term )
+        {
+            $query->where(function($q) use ($term){
+                $q->orWhere('title', 'LIKE', "%{$term}%");
+                $q->orWhere('excerpt', 'LIKE', "%{$term}%");
+            });
+        }
+
+    }
+
 
 
   

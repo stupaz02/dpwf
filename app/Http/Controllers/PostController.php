@@ -11,6 +11,7 @@ use Carbon\Carbon;
 
 class PostController extends Controller
 {
+    protected $limit = 2;
     
     public function index()
     {
@@ -44,10 +45,27 @@ class PostController extends Controller
         return view('front.index', compact('announcements','advisories','memoranda','features','calendar','photos'));
     }
 
-    public function show (Post $post)
+    public function show (Post $pid)
     {
         // $post = Post::published()->findOrFail($id);
 
-        return view("front.show", compact('post'));
+        return view("front.show", compact('pid'));
+    }
+
+
+    public function search ()
+    {
+        $posts = Post::published()->latestFirst()->filter(request('term'))->take(5)->get();
+
+      
+        
+
+        return view("front.search", compact('posts'));
+        // if ($term = request('term') )
+        // {
+        //     $posts->where('title', 'LIKE', "%{$term}%");
+        // }
+
+        //$posts = $posts->take(5)->get();
     }
 }

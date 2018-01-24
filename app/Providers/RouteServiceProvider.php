@@ -24,7 +24,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::bind('post', function($slug) {
+        Route::bind('pid', function($slug) {
             return Post::published()->where('slug', $slug)->first();
         });
         parent::boot();

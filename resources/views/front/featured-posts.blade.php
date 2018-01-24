@@ -12,7 +12,7 @@
                  @foreach($features as $f)
                     <div  class="media mb-4" data-aos="flip-right" data-aos-offset="300"data-aos-delay ="100" data-aos-easing="ease-in-sine">
                         <div class="img-box">
-                        <figure><img class=" img-fluid align-self-center mr-3" style="width:300px; height:200px;" src="{{$f->image_url}}" alt="Generic placeholder image"></figure>
+                        <figure><a href="{{ route('front.show', $f->slug) }}"><img class=" img-fluid align-self-center mr-3" style="width:300px; height:200px;" src="{{$f->image_url}}" alt="Generic placeholder image"></a></figure>
                         </div>
                         <div class="media-body">
                             <a href="{{ route('front.show', $f->slug)}}">

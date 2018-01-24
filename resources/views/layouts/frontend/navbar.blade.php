@@ -77,11 +77,12 @@
                </li>
            </ul>
 
-           <form class="form-inline my-2 my-lg-0 ">
+           <form action="{{ route('search')}}" class="form-inline my-2 my-lg-0 ">
               <div class="input-group">
-                   <input class="form-control form-control-sm " type="text" placeholder="Search" aria-label="Search">
+                   <input class="form-control form-control-sm " value="{{ request('term')}}" name ="term" type="text" placeholder="Search" aria-label="Search">
                    <span class="input-group-btn">
-                    <button class="btn btn btn-outline-secondary btn-sm my-2 my-sm-0" type="submit">Search</button>
+                    <button type="submit" class="btn btn btn-outline-secondary btn-sm  my-sm-0" style="
+                    margin-left: 2px;" type="submit"><i class="fa fa-search"></i></button>
                    </span>
               </div>
 

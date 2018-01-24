@@ -9,21 +9,21 @@
                 <div class="col-md-10 show-container container">
                      <div class="d-flex align-items-center p-3 my-3 text-white-50 card-active rounded box-shadow">
                       <div class="">
-                        <h6 class="mb-0 text-white">{{ $post->title }}</h6>
+                        <h6 class="mb-0 text-white">{{ $pid->title }}</h6>
                        
                       </div>
                     </div>
 
                      <div class="card box-shadow" style="max-width: 65rem;">   
-                       @if($post->image_url)
-                        <img class="card-img-top img-fluid" src="{{ $post->image_url}}" style="height:300px;" alt="Card image cap">         
+                       @if($pid->image_url)
+                        <img class="card-img-top img-fluid" src="{{ $pid->image_url}}" style="height:300px;" alt="Card image cap">         
                        @endif
                         <div class="card-body">
                         
-                        {!!$post->body !!}
+                        {!!$pid->body !!}
                         </div>
                         <div class="card-footer">
-                            <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $post->created_at->diffForHumans() }}
+                            <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $pid->created_at->diffForHumans() }}
                         </div>
                     </div>
                    
