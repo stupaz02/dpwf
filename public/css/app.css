@@ -13058,6 +13058,11 @@ thead * {
   font-size: 1rem;
 }
 
+#search .box-shadow {
+  -webkit-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
 body {
   min-height: 700px;
   font-family: "Poppins", sans-serif;

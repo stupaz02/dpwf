@@ -14,7 +14,7 @@
         @elseif ($term = request('term'))
         
             <div class="alert alert-info card-active text-white">
-                <p> Search Results for: <strong>{{ $term }}</strong></p>
+                <p> Search Results for: <span class="text-warning"><strong>{{ $term }}</strong></spa></p>
             </div> 
 
             @foreach ($posts as $post)

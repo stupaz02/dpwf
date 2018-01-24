@@ -9,7 +9,7 @@
                 <div class="col-md-10 show-container container">
                      <div class="d-flex align-items-center p-3 my-3 text-white-50 card-active rounded box-shadow">
                       <div class="">
-                        <h6 class="mb-0 text-white">{{ $pid->title }}</h6>
+                        <h6 class="mb-0 text-white text-warning">{{ $pid->title }}</h6>
                        
                       </div>
                     </div>
@@ -24,7 +24,13 @@
                         </div>
                         <div class="card-footer">
                             <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $pid->created_at->diffForHumans() }}
-                        </div>
+                            @if (Auth::check() == $pid->author_id)
+                            <a class="btn btn-primary btn-sm card-active pull-right" href="{{ route('post.edit', $pid->id)}}" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            @endif
+                          
+                          </div>
+
+                      
                     </div>
                    
 
@@ -35,7 +41,7 @@
                     <div class="d-flex align-items-center p-2 my-3  rounded box-shadow">
                       <div class="">
                         <h6 class="mb-0 text-white">Download</h6>
-                       
+                     
                       </div>
                     </div>
                  </div>
