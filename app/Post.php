@@ -27,6 +27,11 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function slide()
+    {
+        return $this->belongsTo(Slide::class);
+    }
+
     public function dateFormatted($showTimes = false)
     {
         $format ="d/m/Y";
@@ -121,6 +126,7 @@ class Post extends Model
             $query->where(function($q) use ($term){
                 $q->orWhere('title', 'LIKE', "%{$term}%");
                 $q->orWhere('excerpt', 'LIKE', "%{$term}%");
+                $q->orWhere('body', 'LIKE', "%{$term}%");
             });
         }
 

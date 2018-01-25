@@ -13049,6 +13049,12 @@ thead * {
           box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
+#show-post .btn-primary:hover {
+  color: #fff;
+  background-color: #00897b;
+  border-color: transparent;
+}
+
 #search {
   color: #343a40;
 }
@@ -13061,6 +13067,23 @@ thead * {
 #search .box-shadow {
   -webkit-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
           box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+#search .card-header-bg {
+  background-color: #00897b;
+}
+
+#search .btn-primary:hover {
+  color: #fff;
+  background-color: #00897b;
+  border-color: transparent;
+}
+
+#search .page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #00897b;
+  border-color: transparent;
 }
 
 body {

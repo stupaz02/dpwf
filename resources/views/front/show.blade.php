@@ -9,7 +9,7 @@
                 <div class="col-md-10 show-container container">
                      <div class="d-flex align-items-center p-3 my-3 text-white-50 card-active rounded box-shadow">
                       <div class="">
-                        <h6 class="mb-0 text-white text-warning">{{ $pid->title }}</h6>
+                        <h6 class="mb-0 text-white text-warning text-uppercase font-weight-bold">{{ $pid->title }}</h6>
                        
                       </div>
                     </div>
@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-footer">
                             <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $pid->created_at->diffForHumans() }}
-                            @if (Auth::check() == $pid->author_id)
+                            @if (Auth::user()->id == $pid->author_id)
                             <a class="btn btn-primary btn-sm card-active pull-right" href="{{ route('post.edit', $pid->id)}}" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                             @endif
                           
@@ -36,13 +36,24 @@
 
   
                 </div>
-                <div class="col-md-2 show-container">
+                <div class="col-md-2  show-container">
                   <div class="container">
-                    <div class="d-flex align-items-center p-2 my-3  rounded box-shadow">
+                    {{--  <div class="d-flex align-items-center p-2 my-3  rounded box-shadow">
                       <div class="">
                         <h6 class="mb-0 text-white">Download</h6>
                      
                       </div>
+                    </div>  --}}
+
+                    <div class="card my-3" style="width: 10rem;">
+                      <div class="card-header card-active text-warning">
+                        DOWNLOAD
+                      </div>
+                      <ul class="list-group list-group-flush p-2">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                      </ul>
                     </div>
                  </div>
                    

@@ -38,6 +38,11 @@ class Slide extends Model
 
         return $imageUrl;
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
 
 

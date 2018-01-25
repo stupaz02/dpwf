@@ -21,17 +21,18 @@
                
 
                   <div class="card mb-2 box-shadow">
-                        <h5 class="card-header">{{ $post->title }}</h5>
+                        <h5 class="card-header card-active font-weight-bold text-warning text-uppercase">{{ $post->title }}</h5>
                         <div class="card-body">
                           <h5 class="card-title">{{ $post->excerpt}}</h5>
-                          <a href="{{ route('front.show', $post->slug)}}" class="btn btn-primary card-active">Read more..</a>
+                          <a href="{{ route('front.show', $post->slug)}}" class="btn btn-primary btn-sm card-active">Read more..</a>
                         </div>
                       </div>
 
                       
 
             @endforeach
-            
+
+            {{ $posts->appends(request()->only(['term']))->links( "pagination::bootstrap-4")}}
             
         @endif
 

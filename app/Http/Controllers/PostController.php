@@ -55,10 +55,8 @@ class PostController extends Controller
 
     public function search ()
     {
-        $posts = Post::published()->latestFirst()->filter(request('term'))->take(5)->get();
+        $posts = Post::published()->latestFirst()->filter(request('term'))->paginate(5);
 
-      
-        
 
         return view("front.search", compact('posts'));
         // if ($term = request('term') )

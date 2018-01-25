@@ -34,7 +34,7 @@
       </button>
 
       <a href="/" class="navbar-brand" id="logo">
-       <img src="{{ asset('img/DepedLR.png') }}" alt="" width="80" height="80">
+       <img src="{{ asset('backend/img/DepedLR.png') }}" alt="" width="80" height="80">
       
       </a>
       
