@@ -5,6 +5,7 @@
         
             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                 {!! Form::label('title') !!}
+              
                 {!! Form::text('title', null,['class' =>'form-control']) !!}
 
                 @if($errors->has('title'))
@@ -37,7 +38,9 @@
                 @if($errors->has('body'))
                     <span class="help-block">{{ $errors->first('body') }}</span>
                 @endif
-            </div>            
+            </div>      
+
+                 
       </div>
       <!-- /.box-body -->
    
@@ -96,6 +99,23 @@
             </div>
         </div>
 
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Files</h3>
+            </div>
+            <div class="box-body text-center">
+                <div class="form-group {{ $errors->has('file_name') ? 'has-error' : '' }}">
+                    
+                    <input type="file" name="file_name[]" multiple / class="form-control">
+
+                    @if($errors->has('image'))
+                       <span class="help-block">{{ $errors->first('file_name') }}</span>
+                    @endif
+                
+                </div>
+
+            </div>
+        </div>
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title">Featured Image</h3>

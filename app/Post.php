@@ -11,7 +11,7 @@ class Post extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title','slug', 'excerpt', 'body', 'published_at', 'category_id', 'image'];
+    protected $fillable = ['title','slug', 'excerpt', 'body', 'published_at', 'category_id', 'image','filename'];
     protected $dates = ['published_at'];
 
 
@@ -27,10 +27,15 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function slide()
-    {
-        return $this->belongsTo(Slide::class);
-    }
+    // public function slide()
+    // {
+    //     return $this->belongsTo(Slide::class);
+    // }
+
+
+    public function attachments() {
+        return $this->hasMany(Attachment::class);
+      }
 
     public function dateFormatted($showTimes = false)
     {
@@ -119,7 +124,6 @@ class Post extends Model
 
     public function scopeFilter ($query, $term)
     {
-
           
         if ($term )
         {
@@ -131,6 +135,9 @@ class Post extends Model
         }
 
     }
+
+
+    
 
 
 

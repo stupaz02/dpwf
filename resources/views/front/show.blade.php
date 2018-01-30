@@ -20,12 +20,14 @@
                        @endif
                         <div class="card-body">
                         
-                        {!!$pid->body !!}
+                        {!! $pid->body !!}
                         </div>
                         <div class="card-footer">
                             <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $pid->created_at->diffForHumans() }}
-                            @if (Auth::user()->id == $pid->author_id)
-                            <a class="btn btn-primary btn-sm card-active pull-right" href="{{ route('post.edit', $pid->id)}}" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            @if(!Auth::guest())
+                                @if (Auth::user()->id == $pid->author_id)
+                                <a class="btn btn-primary btn-sm card-active pull-right" href="{{ route('post.edit', $pid->id)}}" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                @endif
                             @endif
                           
                           </div>
@@ -44,15 +46,29 @@
                      
                       </div>
                     </div>  --}}
-
+                @if($pid->attachments->count() > 0)
                     <div class="card my-3" style="width: 10rem;">
                       <div class="card-header card-active text-warning">
                         DOWNLOAD
                       </div>
                       <ul class="list-group list-group-flush p-2">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        {{--  <li class="list-group-item text-warning">{{ $pid->post_id}}</li>  --}}
+                      
+
+
+                          <ul>
+                            @foreach($pid->attachments as $attachment)
+                                <li class="list-group-item text-warning">{{ $attachment->file_name }}</li>
+
+                            @endforeach
+                          </ul>
+
+                        @else
+
+                         
+
+                        @endif
+                        
                       </ul>
                     </div>
                  </div>

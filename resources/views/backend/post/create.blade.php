@@ -27,10 +27,13 @@
                     'route'  => 'post.store',
                     'files'  => TRUE,
                     'id'     => 'post-form'
+                   
                  ]) !!}
          
           @include('backend.post.form')
           {!! Form::close() !!}
+
+          {{--  @include('backend.post.file-attach')  --}}
         
         </div>
       <!-- ./row -->

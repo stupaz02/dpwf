@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest; 
+use App\Http\Requests\AttachmentsRequest; 
 use App\Post;
+use App\Attachment;
 use Intervention\Image\Facades\Image;
 // use App\Http\Controllers\Controller;
 
@@ -102,7 +104,41 @@ class PostController extends BackendController
     {
        
            $data = $this->handleRequest($request);
-           $request->user()->posts()->create($data);
+           $input = $request->user()->posts()->create($data);
+
+          
+           if($request->hasFile('file_name'))
+           {     
+                $destination = $this->uploadPath;
+                // $files = [];
+            
+                foreach ($request->file_name as $file)
+                {
+                    //$fileName = $file->store('img')            
+                    // Attachment::create([
+                    //     'post_id' =>$input->id,
+                    //     'file_name' => $fileName
+                    // ]);
+
+                    if(!empty($file))
+                    {
+                        $fileName = time() .$file->getClientOriginalName(); 
+                        $successUploaded = $file->move($destination, $fileName);   
+                        
+                         Attachment::create([
+                               'post_id' =>$input->id,
+                               'file_name' => $fileName
+                             ]);
+        
+                    }
+
+                    // $files[] = $fileName;
+                }         
+            }
+            
+
+
+             
 
            return redirect()->route('post.index')->with('message', 'Your posts was created successfully!');
            
@@ -150,6 +186,11 @@ class PostController extends BackendController
     {
         //
     }
+
+
+
+
+   
 
     /**
      * Show the form for editing the specified resource.

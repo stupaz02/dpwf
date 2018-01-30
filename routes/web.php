@@ -27,6 +27,11 @@ Route::get('/post/{pid}',[
     'as'  => 'front.show'
 ]);
 
+Route::post('/backend/post/upload',[
+    'uses' => 'Backend\FileUploaderController@uploadFile',
+    'as'   => 'post.fileupload'
+]);
+
 Route::resource('/backend/events', 'Backend\EventsController');
 Route::resource('/backend/slides', 'Backend\SlideController');
 
