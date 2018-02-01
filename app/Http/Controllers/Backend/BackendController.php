@@ -20,6 +20,7 @@ class BackendController extends Controller
         $this->middleware('check-permission');
         
         $this->uploadPath = public_path(config('cms.image.directory'));
+        $this->filesuploadPath = public_path(config('cms.image.files'));
     }
 
     public function removeImage($image)
@@ -33,6 +34,21 @@ class BackendController extends Controller
 
             if (file_exists($imagePath)) unlink($imagePath);
             if (file_exists($thumbnailPath)) unlink($thumbnailPath);
+        }
+    }
+
+
+    public function removeFile($file)
+    {
+        if(! empty($file))
+        {
+            $filePath     = $this->filesuploadPath . '/' . $file;
+            $ext           = substr(strrchr($file, '.'), 1);
+            // $thumbnail     = str_replace(".{$ext}", "_thumb.{$ext}", $image);
+            // $thumbnailPath = $this->uploadPath . '/' . $thumbnail;
+
+            if (file_exists($filePath)) unlink( $filePath);
+            // if (file_exists($thumbnailPath)) unlink($thumbnailPath);
         }
     }
 

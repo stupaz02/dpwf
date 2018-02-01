@@ -106,9 +106,9 @@
             <div class="box-body text-center">
                 <div class="form-group {{ $errors->has('file_name') ? 'has-error' : '' }}">
                     
-                    <input type="file" name="file_name[]" multiple / class="form-control">
+                    <input type="file" name="file_name[]" multiple  class="form-control">
 
-                    @if($errors->has('image'))
+                    @if($errors->has('file_name'))
                        <span class="help-block">{{ $errors->first('file_name') }}</span>
                     @endif
                 

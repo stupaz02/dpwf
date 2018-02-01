@@ -3,6 +3,7 @@
 return [
     'image'          => [
         'directory'  => 'img',
+        'files'  => 'files',
         'thumbnail'  => [
             'width'  => 250,
             'height' => 170

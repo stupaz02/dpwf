@@ -41,6 +41,12 @@ Route::get('/home', 'Backend\HomeController@index')->name('home');
 Route::get('/edit-account', 'Backend\HomeController@edit');
 Route::put('/edit-account', 'Backend\HomeController@update');
 
+Route::get('/files/{file}',[
+    'uses'  => 'Backend\DownloadController@downloadFile',
+    'as'    => 'downloadFile'
+]);
+
+
 Route::put('/backend/post/restore/{post}', [
     'uses' => 'Backend\PostController@restore',
     'as'   => 'post.restore'

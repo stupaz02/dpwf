@@ -14,12 +14,14 @@ class PostController extends BackendController
 {
   
     protected $uploadPath;
+    protected $fileUploadPath;
 
 
     public function __construct()
     {
         parent::__construct();
         $this->uploadPath = public_path(config('cms.image.directory'));
+        $this->fileUploadPath = public_path(config('cms.image.files'));
     }
     /**
      * Display a listing of the resource.
@@ -100,26 +102,20 @@ class PostController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(PostRequest $request, AttachmentsRequest $request2)
     {
        
            $data = $this->handleRequest($request);
            $input = $request->user()->posts()->create($data);
 
           
-           if($request->hasFile('file_name'))
+           if($request2->hasFile('file_name'))
            {     
-                $destination = $this->uploadPath;
-                // $files = [];
-            
-                foreach ($request->file_name as $file)
+                $destination = $this->fileUploadPath;
+                                
+                foreach ($request2->file_name as $file)
                 {
-                    //$fileName = $file->store('img')            
-                    // Attachment::create([
-                    //     'post_id' =>$input->id,
-                    //     'file_name' => $fileName
-                    // ]);
-
+                    
                     if(!empty($file))
                     {
                         $fileName = time() .$file->getClientOriginalName(); 
@@ -129,16 +125,11 @@ class PostController extends BackendController
                                'post_id' =>$input->id,
                                'file_name' => $fileName
                              ]);
-        
                     }
 
                     // $files[] = $fileName;
                 }         
-            }
-            
-
-
-             
+            }           
 
            return redirect()->route('post.index')->with('message', 'Your posts was created successfully!');
            
@@ -184,13 +175,10 @@ class PostController extends BackendController
      */
     public function show($id)
     {
-        //
+        
     }
 
-
-
-
-   
+  
 
     /**
      * Show the form for editing the specified resource.
@@ -238,7 +226,20 @@ class PostController extends BackendController
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id)->delete();
+        $post = Post::findOrFail($id);
+        // $post = Post::findOrFail($id)->delete();
+        
+        if($post->attachments->count() > 0)
+          {
+            foreach ($post->attachments as $attachment) {
+                $this->removeFile($attachment->file_name);
+            }
+          }
+
+          $post->delete();
+            
+    
+
         return redirect()->route('post.index')->with('trash-message', ['Your post moved to Trash', $id]);
 
     }
@@ -250,6 +251,10 @@ class PostController extends BackendController
         $post->forceDelete();
 
         $this->removeImage($post->image);
+
+       
+
+
 
         return redirect('/backend/post?status=trash')->with('message', 'Your post has been deleted successfully');
 

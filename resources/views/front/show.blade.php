@@ -40,36 +40,35 @@
                 </div>
                 <div class="col-md-2  show-container">
                   <div class="container">
-                    {{--  <div class="d-flex align-items-center p-2 my-3  rounded box-shadow">
-                      <div class="">
-                        <h6 class="mb-0 text-white">Download</h6>
-                     
-                      </div>
-                    </div>  --}}
+                   
                 @if($pid->attachments->count() > 0)
                     <div class="card my-3" style="width: 10rem;">
                       <div class="card-header card-active text-warning">
                         DOWNLOAD
                       </div>
-                      <ul class="list-group list-group-flush p-2">
-                        {{--  <li class="list-group-item text-warning">{{ $pid->post_id}}</li>  --}}
+                      <div class="card-body">
+                     
+                        <ul class="list-group list-group-flush">
                       
-
-
-                          <ul>
                             @foreach($pid->attachments as $attachment)
-                                <li class="list-group-item text-warning">{{ $attachment->file_name }}</li>
-
+                                {{--  <li class="list-group-item text-warning">{{ $attachment->file_name }}</li>  --}}
+                               
+                                  {{--  {{ $attachment->file_name }}  --}}
+                                  <li class="list-group-item">
+                                      <a href="{{route('downloadFile', $attachment->file_name)}}" download="{{ $attachment->file_name }}" class="btn btn-secondary btn-sm btn-block card-active"><i aria-hidden="true" id="dropdown" class="fa fa-download"></i></a> 
+                                  </li>
+                                 
+                                
                             @endforeach
-                          </ul>
+                        </ul>
 
                         @else
-
-                         
+              
+                       
 
                         @endif
                         
-                      </ul>
+                      </div>
                     </div>
                  </div>
                    

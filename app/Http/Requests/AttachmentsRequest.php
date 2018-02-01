@@ -13,7 +13,7 @@ class AttachmentsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,15 +23,23 @@ class AttachmentsRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'name' => 'required'
-        ];
-        $files = count($this->inputs('file_name'));
-        foreach(range(0, $files) as $index)
-        {
-            $rules['file_name.' . $index] = 'mimes:jpeg,bmp,png|max:2000';
-        }
+      
 
-        return $rules;
+        
+        // $files = count($this->input('file_name'));
+        // foreach(range(0, $files) as $index)
+        // {
+        //     $rules['file_name.' . $index] = 'required|mimes:jpeg,txt,bmp,png|max:2000';
+        // }
+
+        // return $rules;
+
+        return [
+            'file_name' => 'required|array',
+            'file_name.*' => 'required|mimes:jpeg,bmp,png,txt|max:2000'
+            
+        ];
+
+
     }
 }
