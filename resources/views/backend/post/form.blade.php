@@ -90,7 +90,7 @@
                     {{--  {!! Form::label('category_id','Category') !!}  --}}
                     {!! Form::select('category_id', App\Category::pluck('title','id'), null,['class' =>'form-control','placeholder'=> 'Choose category']) !!}
                     
-
+                  
                     @if($errors->has('category_id'))
                     <span class="help-block">{{ $errors->first('category_id') }}</span>
                     @endif
@@ -107,6 +107,28 @@
                 <div class="form-group {{ $errors->has('file_name') ? 'has-error' : '' }}">
                     
                     <input type="file" name="file_name[]" multiple  class="form-control">
+
+                    <ul class="list-group">
+                        @if($post->attachments->count() > 0)
+                             @foreach($post->attachments as $attachment)
+                          
+                              <li class="list-group-item">
+
+                               {{--  {{Form::open(['method' =>'DELETE', 'route' =>['attachment.destroy', $attachment->id]])}}     --}}
+                                 {{--  <a  href="" class="btn btn-xs btn-default" data-toggle="tooltip" title="{{ $attachment->file_name }}"> {{ str_limit($attachment->file_name, 15) }} <i class="fa fa-times"></i></a>  --}}
+                                 {{--  <button  type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" title="{{ $attachment->file_name }}">
+                                     {{ str_limit($attachment->file_name, 15)}}<i class="fa fa-times"></i>
+                                </button>
+                                 {{Form::close()}}  --}}
+                                 <a  href="{{route('attachment.destroy',['id' => $attachment->id])}}" class="btn btn-xs btn-default" data-toggle="tooltip" title="{{ $attachment->file_name }}"> {{ str_limit($attachment->file_name, 15) }} <i class="fa fa-times"></i></a>
+
+
+                              </li>
+
+                            @endforeach
+                        @endif
+                    </ul>
+
 
                     @if($errors->has('file_name'))
                        <span class="help-block">{{ $errors->first('file_name') }}</span>

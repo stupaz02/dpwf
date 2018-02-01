@@ -205,7 +205,30 @@ class PostController extends BackendController
         $post          = Post::findOrFail($id);
         $oldImage      = $post->image;
         $data          = $this->handleRequest($request);
+        
         $post->update($data);
+
+        if($request->hasFile('file_name'))
+        {     
+             $destination = $this->fileUploadPath;
+                             
+             foreach ($request->file_name as $file)
+             {
+                 
+                 if(!empty($file))
+                 {
+                     $fileName = time() .$file->getClientOriginalName(); 
+                     $successUploaded = $file->move($destination, $fileName);   
+                     
+                      Attachment::create([
+                            'post_id' =>$post->id,
+                            'file_name' => $fileName
+                          ]);
+                 }
+
+                 // $files[] = $fileName;
+             }         
+         }   
 
         if($oldImage !== $post->image)
         {

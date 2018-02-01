@@ -27,10 +27,10 @@ Route::get('/post/{pid}',[
     'as'  => 'front.show'
 ]);
 
-Route::post('/backend/post/upload',[
-    'uses' => 'Backend\FileUploaderController@uploadFile',
-    'as'   => 'post.fileupload'
-]);
+// Route::post('/backend/post/upload',[
+//     'uses' => 'Backend\FileUploaderController@uploadFile',
+//     'as'   => 'post.fileupload'
+// ]);
 
 Route::resource('/backend/events', 'Backend\EventsController');
 Route::resource('/backend/slides', 'Backend\SlideController');
@@ -44,6 +44,11 @@ Route::put('/edit-account', 'Backend\HomeController@update');
 Route::get('/files/{file}',[
     'uses'  => 'Backend\DownloadController@downloadFile',
     'as'    => 'downloadFile'
+]);
+
+Route::get('/backend/post/attachment/{id}',[
+    'uses' => 'Backend\DownloadController@destroyAtt',
+    'as'   => 'attachment.destroy'
 ]);
 
 
