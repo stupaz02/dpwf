@@ -13086,6 +13086,18 @@ thead * {
   border-color: transparent;
 }
 
+#download .card-active {
+  background-color: #004D40;
+}
+
+#download button {
+  text-decoration: none;
+}
+
+#download #link a {
+  text-decoration: none;
+}
+
 body {
   min-height: 700px;
   font-family: "Poppins", sans-serif;

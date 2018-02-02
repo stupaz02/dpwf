@@ -55,7 +55,7 @@
                                
                                   {{--  {{ $attachment->file_name }}  --}}
                                   <li class="list-group-item">
-                                      <a href="{{route('downloadFile', $attachment->file_name)}}" download="{{ $attachment->file_name }}" class="btn btn-secondary btn-sm btn-block card-active"><i aria-hidden="true" id="dropdown" class="fa fa-download"></i></a> 
+                                      <a href="{{route('downloadFile', $attachment->file_name)}}" download="{{ $attachment->file_name }}" data-toggle="tooltip" data-placement="top" title="{{ $attachment->file_name }}"  class="btn btn-secondary btn-sm btn-block card-active"><i aria-hidden="true" id="dropdown" class="fa fa-download"></i></a> 
                                   </li>
                                  
                                 
@@ -82,3 +82,8 @@
 
 
 @endsection
+
+
+
+
+

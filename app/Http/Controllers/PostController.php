@@ -66,4 +66,15 @@ class PostController extends Controller
 
         //$posts = $posts->take(5)->get();
     }
+
+    public function showDownload()
+    {
+        $accounting = Post::where('category_id',6)->published()->get();
+        return view('front.download', compact("accounting"));
+    }
+
+    public function issuances()
+    {
+        return view('front.issuances', compact("issuances"));
+    }
 }

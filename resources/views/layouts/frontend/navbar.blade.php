@@ -57,20 +57,20 @@
                    <a href="" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-folder-o mr-1" aria-hidden="true" id="dropdown"></i> Issuances</a>
                    <div class="dropdown-menu">
                        <!-- <a class="dropdown-item" href="#">Issuances</a> -->
-                       <a class="dropdown-item" href="#"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> Divison Memos and Issuances</a>
+                       <a class="dropdown-item" href="{{ route('front.issuances')}}"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> Divison Memos and Issuances</a>
                        <a class="dropdown-item" href="http://www.deped.gov.ph/orders"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> DepEd Orders</a>
                        <a class="dropdown-item" href="#"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> DepEd Memo</a>
                        <a class="dropdown-item" href="#"><i class="fa fa-folder-open mr-1 " aria-hidden="true"></i> DepEd Advisories</a>                     
                    </div>
                </li>
-               <li class="navbar-item dropdown">
-                   <a href="" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-download mr-1" aria-hidden="true" id="dropdown"></i> Downloads</a>
-                   <div class="dropdown-menu">
+               <li class="navbar-item">
+                   <a href="{{ route('front.showdownload')}}" class="nav-link text-uppercase" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-download mr-1" aria-hidden="true" id="dropdown"></i> Downloads</a>
+                   {{--  <div class="dropdown-menu">  --}}
                        <!-- <a class="dropdown-item" href="#">Issuances</a> -->
-                       <a class="dropdown-item" href="#"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> Forms</a>
+                       {{--  <a class="dropdown-item" href="#"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> Forms</a>  --}}
                      
                                           
-                   </div>
+                   {{--  </div>  --}}
                </li>
                <li class="navbar-item">
                    <a href="" class="nav-link text-uppercase"><i class="fa fa-envelope-open-o mr-1" aria-hidden="true" id="dropdown"></i> Contact Us</a>

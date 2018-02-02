@@ -27,6 +27,17 @@ Route::get('/post/{pid}',[
     'as'  => 'front.show'
 ]);
 
+
+Route::get('/download',[
+    'uses' => 'PostController@showDownload',
+    'as'   => 'front.showdownload'
+]);
+
+Route::get('/issuances',[
+    'uses' => 'PostController@issuances',
+    'as'   => 'front.issuances'
+]);
+
 // Route::post('/backend/post/upload',[
 //     'uses' => 'Backend\FileUploaderController@uploadFile',
 //     'as'   => 'post.fileupload'
