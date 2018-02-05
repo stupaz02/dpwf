@@ -28,12 +28,60 @@ class CategoriesTableSeeder extends Seeder
                 'slug' => 'division-announcement'
             ],
             [
+                'title' => 'Numbered',
+                'slug' => 'numbered'
+            ],
+            [
+                'title' => 'Unnumbered',
+                'slug' => 'Unnumbered'
+            ],
+            [
                 'title' => 'Division Advisories',
                 'slug' => 'division-advisories'
             ],
             [
                 'title' => 'Featured',
                 'slug' => 'featured'
+            ],
+            [
+                'title' => 'Accounting',
+                'slug' => 'accounting'
+            ],
+            [
+                'title' => 'Admin',
+                'slug' => 'admin'
+            ],
+            [
+                'title' => 'Cashier',
+                'slug' => 'cashier'
+            ],
+            [
+                'title' => 'CID',
+                'slug' => 'cid'
+            ],
+            [
+                'title' => 'Legal',
+                'slug' => 'legal'
+            ],
+            [
+                'title' => 'Medical',
+                'slug' => 'medical'
+            ],
+            [
+                'title' => 'SGOD',
+                'slug' => 'sgod'
+            ],
+            [
+                'title' => 'Records',
+                'slug' => 'records'
+            ],
+            [
+                'title' => 'Lrms',
+                'slug' => 'lrms'
+            ],
+            [
+                'title' => 'Supply',
+                'slug' => 'supply'
             ]
 
         ]);
