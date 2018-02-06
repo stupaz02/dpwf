@@ -12,8 +12,10 @@
            @include('front.sections.cashier')
            @include('front.sections.cid')
            @include('front.sections.legal')
-           @include('front.sections.sgod')
            @include('front.sections.lrmds')
+           @include('front.sections.records')
+           @include('front.sections.sgod')
+           @include('front.sections.supply')
          
         </div>
     </div>

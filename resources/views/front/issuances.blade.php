@@ -8,6 +8,7 @@
    <section id="issuances">
       <div class="container">
           <div id="accordion ">
+            @include('front.issuances.advisory')
             @include('front.issuances.numbered')
             @include('front.issuances.unnumbered')
           </div>  

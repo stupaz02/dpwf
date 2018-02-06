@@ -260,8 +260,6 @@ class PostController extends BackendController
           }
 
           $post->delete();
-            
-    
 
         return redirect()->route('post.index')->with('trash-message', ['Your post moved to Trash', $id]);
 
@@ -274,10 +272,6 @@ class PostController extends BackendController
         $post->forceDelete();
 
         $this->removeImage($post->image);
-
-       
-
-
 
         return redirect('/backend/post?status=trash')->with('message', 'Your post has been deleted successfully');
 

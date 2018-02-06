@@ -16,9 +16,9 @@ class PostController extends Controller
     public function index()
     {
         $photos = Slide::all();
-        $announcements = Post::where('category_id', 3)->published()->latestFirst()->take(4)->get();
+        $announcements = Post::where('category_id', 5)->published()->latestFirst()->take(4)->get();
         $advisories = Post::where('category_id', 4)->published()->latestFirst()->take(4)->get();
-        $memoranda = Post::whereIn('category_id', [1,2])->published()->latestFirst()->take(4)->get();
+        $memoranda = Post::whereIn('category_id', [6,9])->published()->latestFirst()->take(4)->get();
         $features = Post::where('category_id', 7)->published()->latestFirst()->take(4)->get();
 
         $events = [];
@@ -68,22 +68,29 @@ class PostController extends Controller
 
     public function showDownload()
     {
-        $accounting = Post::where('category_id',8)->published()->get();
-        $admin      = Post::where('category_id',9)->published()->get();
+        $accounting = Post::where('category_id',2)->published()->get();
+        $admin      = Post::where('category_id',3)->published()->get();
         $cashier    = Post::where('category_id',10)->published()->get();
         $cid        = Post::where('category_id',11)->published()->get();
         $legal      = Post::where('category_id',12)->published()->get();
-        $lrms       = Post::where('category_id',16)->published()->get();
-        $medical    = Post::where('category_id',13)->published()->get();
+        $lrms       = Post::where('category_id',13)->published()->get();
+        $medical    = Post::where('category_id',14)->published()->get();
         $records    = Post::where('category_id',15)->published()->get();
-        $sgod       = Post::where('category_id',14)->published()->get();
+        $sgod       = Post::where('category_id',16)->published()->get();
         $supply     = Post::where('category_id',17)->published()->get();
         
         return view('front.download', compact("accounting","admin","cashier","cid","legal","lrms","medical","records","sgod","supply"));
     }
 
+
+  
+
     public function issuances()
     {
-        return view('front.issuances', compact("issuances"));
+        $advisory = Post::where('category_id',4)->published()->get();
+        $numbered = Post::where('category_id',8)->published()->get();
+        $unnumbered = Post::where('category_id',9)->published()->get();
+        
+        return view("front.issuances", compact('advisory','numbered','unnumbered'));
     }
 }

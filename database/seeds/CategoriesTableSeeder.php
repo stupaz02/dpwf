@@ -15,34 +15,12 @@ class CategoriesTableSeeder extends Seeder
 
 
         DB::table('categories')->insert([
+          
             [
                 'title' => 'Uncategorized',
                 'slug' => 'uncategorized'
             ],
-            [
-                'title' => 'Division Memo',
-                'slug' => 'division-memo'
-            ],
-            [
-                'title' => 'Division Announcement',
-                'slug' => 'division-announcement'
-            ],
-            [
-                'title' => 'Numbered',
-                'slug' => 'numbered'
-            ],
-            [
-                'title' => 'Unnumbered',
-                'slug' => 'Unnumbered'
-            ],
-            [
-                'title' => 'Division Advisories',
-                'slug' => 'division-advisories'
-            ],
-            [
-                'title' => 'Featured',
-                'slug' => 'featured'
-            ],
+          
             [
                 'title' => 'Accounting',
                 'slug' => 'accounting'
@@ -51,6 +29,39 @@ class CategoriesTableSeeder extends Seeder
                 'title' => 'Admin',
                 'slug' => 'admin'
             ],
+            [
+                'title' => 'Division Advisories',
+                'slug' => 'division-advisories'
+            ],
+
+            [
+                'title' => 'Division Announcements',
+                'slug' => 'division-announcements'
+            ],
+
+            [
+                'title' => 'Division Memoranda',
+                'slug' => 'division-memo'
+            ],
+
+            [
+                'title' => 'Featured',
+                'slug' => 'featured'
+            ],
+          
+
+          
+         
+            [
+                'title' => 'Numbered',
+                'slug' => 'numbered'
+            ],
+            [
+                'title' => 'Unnumbered',
+                'slug' => 'Unnumbered'
+            ],
+        
+           
             [
                 'title' => 'Cashier',
                 'slug' => 'cashier'
@@ -64,20 +75,20 @@ class CategoriesTableSeeder extends Seeder
                 'slug' => 'legal'
             ],
             [
-                'title' => 'Medical',
-                'slug' => 'medical'
+                'title' => 'Lrms',
+                'slug' => 'lrms'
             ],
             [
-                'title' => 'SGOD',
-                'slug' => 'sgod'
+                'title' => 'Medical',
+                'slug' => 'medical'
             ],
             [
                 'title' => 'Records',
                 'slug' => 'records'
             ],
             [
-                'title' => 'Lrms',
-                'slug' => 'lrms'
+                'title' => 'SGOD',
+                'slug' => 'sgod'
             ],
             [
                 'title' => 'Supply',
