@@ -38,6 +38,11 @@ Route::get('/issuances',[
     'as'   => 'front.issuances'
 ]);
 
+Route::get('/history',[
+    'uses' => 'PostController@history',
+    'as'   => 'front.history'
+]);
+
 // Route::post('/backend/post/upload',[
 //     'uses' => 'Backend\FileUploaderController@uploadFile',
 //     'as'   => 'post.fileupload'

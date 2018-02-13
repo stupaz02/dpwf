@@ -93,4 +93,11 @@ class PostController extends Controller
         
         return view("front.issuances", compact('advisory','numbered','unnumbered'));
     }
+
+
+    public function history()
+    {
+
+        return view("front.pages.history");
+    }
 }
