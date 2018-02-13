@@ -2,7 +2,7 @@
     <div class="card-header card-active" id="headingThree">
         <h5 class="mb-0">
         <button class="btn btn-link collapsed text-white" data-toggle="collapse" data-target="#records" aria-expanded="false" aria-controls="lrmds">
-                <i class="fa fa-building"></i> Records
+                <i class="fa fa-folder-open-o"></i> Records
         </button>
         </h5>
     </div>

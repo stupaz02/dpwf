@@ -8,7 +8,43 @@
         </div>
         <div id="unnumbered" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body text-dark">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    @if($unnumbered->count() > 0)
+                    <table class="table table-hover table-sm ">
+                            <thead class="card-active text-white bg-dark">
+                            <tr>
+                            
+                                <th width="10">#</th>
+                                <th >Title</th>
+                                <th >Date</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                 @foreach($unnumbered as $index =>$unb)
+                        <tr>
+                        <td class="font-weight-bold">{{ $index + 1}}.</b></td>
+                        <td id="link">
+                            <a href="{{ route('front.show', $unb->slug)}}">
+                                <p class="text-dark"> {!! $unb->title !!}</p>
+                            </a>  
+                        </td>  
+                        <td>
+                                {{ $unb->dateFormatted() }}
+                        </td>
+                        </tr>
+                 @endforeach
+
+                    </tbody>
+
+                    </table>
+
+            @else
+
+                    <div class="alert alert-danger">
+                        <p>No record found</strong>
+                    </div>
+
+            @endif
             </div>
         </div>
     </div>

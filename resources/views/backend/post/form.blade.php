@@ -1,5 +1,5 @@
 <div class="col-xs-9">
-    <div class="box">
+    <div class="box box-success">
         
       <div class="box-body ">
         
@@ -50,7 +50,7 @@
   </div>
 
   <div class="col-xs-3">
-        <div class="box">
+        <div class="box box-success">
             <div class="box-header">
                 <h3 class="box-title">Publish</h3>
             </div>
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <div class="box">
+        <div class="box box-success">
             <div class="box-header with-border">
                 <h3 class="box-title">Category</h3>
             </div>
@@ -99,7 +99,7 @@
             </div>
         </div>
 
-        <div class="box">
+        <div class="box box-success">
             <div class="box-header with-border">
                 <h3 class="box-title">Files</h3>
             </div>
@@ -120,7 +120,7 @@
                                      {{ str_limit($attachment->file_name, 15)}}<i class="fa fa-times"></i>
                                 </button>
                                  {{Form::close()}}  --}}
-                                 <a  href="{{route('attachment.destroy',['id' => $attachment->id])}}" class="btn btn-xs btn-default" data-toggle="tooltip" title="{{ $attachment->file_name }}"> {{ str_limit($attachment->file_name, 15) }} <i class="fa fa-times"></i></a>
+                                 <a  href="{{route('attachment.destroy',['id' => $attachment->id])}}" class="btn btn-xs btn-default" data-toggle="tooltip" title="{{ substr($attachment->file_name, 10) }}"> {{ str_limit($attachment->file_name, 15) }} <i class="fa fa-times"></i></a>
 
 
                               </li>
@@ -138,7 +138,7 @@
 
             </div>
         </div>
-        <div class="box">
+        <div class="box box-success">
             <div class="box-header with-border">
                 <h3 class="box-title">Featured Image</h3>
             </div>

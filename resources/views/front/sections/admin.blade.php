@@ -2,7 +2,7 @@
         <div class="card-header  card-active" id="headingOne">
           <h5 class="mb-0">
             <button class="btn btn-link text-white " data-toggle="collapse" data-target="#admin"  aria-expanded="false" aria-controls="collapseOne">
-                    <i class="fa fa-building"></i> Admin
+                    <i class="fa fa-folder-open-o"></i> Admin
             </button>
           </h5>
         </div>

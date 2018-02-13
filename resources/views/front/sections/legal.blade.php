@@ -2,7 +2,7 @@
     <div class="card-header card-active" id="headingThree">
         <h5 class="mb-0">
         <button class="btn btn-link collapsed text-white" data-toggle="collapse" data-target="#legal" aria-expanded="false" aria-controls="collapseThree">
-                <i class="fa fa-building"></i> Legal
+                <i class="fa fa-folder-open-o"></i> Legal
         </h5>
     </div>
     <div id="legal" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">

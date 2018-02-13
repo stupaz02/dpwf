@@ -2,7 +2,7 @@
     <div class="card-header card-active" id="headingThree">
         <h5 class="mb-0">
         <button class="btn btn-link collapsed text-white" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <i class="fa fa-building"></i> Curriculum Implementation Division (CID)
+                <i class="fa fa-folder-open-o"></i> Curriculum Implementation Division (CID)
         </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">

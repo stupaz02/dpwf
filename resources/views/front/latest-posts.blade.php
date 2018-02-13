@@ -73,7 +73,7 @@
                 <div class="col-sm-4 col-md-4 mb-4">
                     <div class="latest-post-box" data-aos="zoom-out-down" data-aos-offset="300" data-aos-delay="300" data-aos-easing="ease-in-sine">
                         <i class="fa fa-book mb-4" aria-hidden="true"></i>
-                        <h3>Memos</h3>
+                        <h3>Memoranda</h3>
 
                         <ul class="advisories-con">
                             @foreach($memoranda as $memo)

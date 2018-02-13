@@ -35,10 +35,14 @@ class AttachmentsRequest extends FormRequest
         // return $rules;
 
         return [
-            'file_name' => 'required|array',
-            'file_name.*' => 'required|mimes:jpeg,bmp,png,txt|max:2000'
+           
+            'file_name.*' => 'nullable|mimes:jpeg,png,bmp,pdf|max:8000'
+                // 'file_name.*' => 'nullable|mimetypes:application/pdf|mimes:jpeg,png,bmp|max:8000'
+           
             
         ];
+
+     
 
 
     }

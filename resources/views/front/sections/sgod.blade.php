@@ -2,7 +2,7 @@
         <div class="card-header card-active" id="headingThree">
             <h5 class="mb-0">
             <button class="btn btn-link collapsed text-white" data-toggle="collapse" data-target="#sgod" aria-expanded="false" aria-controls="sgod">
-                    <i class="fa fa-building"></i> School Governance Operations Division (SGOD) 
+                    <i class="fa fa-folder-open-o"></i> School Governance Operations Division (SGOD) 
             </h5>
         </div>
         <div id="sgod" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">

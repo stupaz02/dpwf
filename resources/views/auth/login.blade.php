@@ -4,7 +4,8 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="/"><b>Deped Palawan</a>
+    <img src="{{ asset('backend/img/DepedLR.png') }}" alt="" width="120" height="120">
+      
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

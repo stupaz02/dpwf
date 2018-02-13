@@ -13098,6 +13098,14 @@ thead * {
   text-decoration: none;
 }
 
+#issuances button {
+  text-decoration: none;
+}
+
+#issuances #link a {
+  text-decoration: none;
+}
+
 body {
   min-height: 700px;
   font-family: "Poppins", sans-serif;
