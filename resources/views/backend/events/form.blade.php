@@ -51,7 +51,7 @@
                 <button type="submit" class="btn btn-primary">{{ $event->exists ? 'Update' : 'Save'}}</button>
                 {{--  <button type="submit" class="btn btn-primary">Save</button>  --}}
                   <a href="{{route('events.index')}}" class="btn btn-default">Cancel</a>
-              </div>
+            </div>
          
         </div>
         <!-- /.box -->

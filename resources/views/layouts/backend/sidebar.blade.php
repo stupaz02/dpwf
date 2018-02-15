@@ -39,6 +39,20 @@
             <li><a href="{{ route('post.create')}}"><i class="fa fa-circle-o"></i> Add New</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder-open-o"></i>
+            <span>Pages</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('pages.index')}}"><i class="fa fa-circle-o"></i>History</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i>Organizational Structure</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i>Mission and Vision</a></li>
+          </ul>
+        </li>
 
      @if (check_user_permissions(request(),"Slide@index"))
         <li><a href="{{ route('slides.index')}}"><i class="fa fa-sliders" aria-hidden="true"></i> <span>Slides</span></a></li>

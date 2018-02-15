@@ -8,6 +8,7 @@ use Calendar;
 use App\Event;
 use App\Slide;
 use Carbon\Carbon;
+use App\History;
 
 class PostController extends Controller
 {
@@ -97,7 +98,12 @@ class PostController extends Controller
 
     public function history()
     {
+        $history = History::all();
+        return view("front.pages.history", compact('history'));
+    }
 
-        return view("front.pages.history");
+    public function contact()
+    {
+        return view("front.pages.contact");
     }
 }

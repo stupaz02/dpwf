@@ -38,6 +38,11 @@ Route::get('/issuances',[
     'as'   => 'front.issuances'
 ]);
 
+Route::get('/contact',[
+    'uses' => 'PostController@contact',
+    'as'   => 'front.contact'
+]);
+
 Route::get('/history',[
     'uses' => 'PostController@history',
     'as'   => 'front.history'
@@ -48,8 +53,12 @@ Route::get('/history',[
 //     'as'   => 'post.fileupload'
 // ]);
 
+
+
+Route::resource('/backend/pages', 'Backend\PageController');
 Route::resource('/backend/events', 'Backend\EventsController');
 Route::resource('/backend/slides', 'Backend\SlideController');
+
 
 Auth::routes();
 
