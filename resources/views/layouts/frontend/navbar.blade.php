@@ -58,9 +58,9 @@
                    <div class="dropdown-menu">
                        <!-- <a class="dropdown-item" href="#">Issuances</a> -->
                        <a class="dropdown-item" href="{{ route('front.issuances')}}"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> Divison Memos and Issuances</a>
-                       <a class="dropdown-item" href="http://www.deped.gov.ph/orders"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> DepEd Orders</a>
-                       <a class="dropdown-item" href="#"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> DepEd Memo</a>
-                       <a class="dropdown-item" href="#"><i class="fa fa-folder-open mr-1 " aria-hidden="true"></i> DepEd Advisories</a>                     
+                       <a class="dropdown-item" href="http://www.deped.gov.ph/orders" target="_blank"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> DepEd Orders</a>
+                       <a class="dropdown-item" href="http://www.deped.gov.ph/memos" target="_blank"><i class="fa fa-folder-open mr-1" aria-hidden="true"></i> DepEd Memo</a>
+                       <a class="dropdown-item" href="http://www.deped.gov.ph/advisories" target="_blank"><i class="fa fa-folder-open mr-1 " aria-hidden="true"></i> DepEd Advisories</a>                     
                    </div>
                </li>
                <li class="navbar-item">
