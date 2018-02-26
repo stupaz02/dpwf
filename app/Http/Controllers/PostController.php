@@ -89,7 +89,7 @@ class PostController extends Controller
     public function issuances()
     {
         $advisory = Post::where('category_id',4)->published()->get();
-        $numbered = Post::where('category_id',8)->published()->get();
+        $numbered = Post::where('category_id',6)->published()->get();
         $unnumbered = Post::where('category_id',9)->published()->get();
         
         return view("front.issuances", compact('advisory','numbered','unnumbered'));
