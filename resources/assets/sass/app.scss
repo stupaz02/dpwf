@@ -26,6 +26,7 @@
 @import "search";
 @import "download";
 @import "issuances";
+@import "quicklinks";
 
 
 $navbar-bg:#00897b;
@@ -158,8 +159,8 @@ header
     background-image:linear-gradient(
                      to right bottom,
                      rgba(126,213,111, 0.8),
-                     rgba(40,180,131,0.8)), 
-                     url(/img/background.jpg);
+                     rgba(40,180,131,0.8));
+                    //  url(/img/background.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
