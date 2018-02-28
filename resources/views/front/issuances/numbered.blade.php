@@ -15,7 +15,7 @@
                             
                                 <th width="10">#</th>
                                 <th >Title</th>
-                                <th >Date</th>
+                                <th >Date Published</th>
                             </tr>
                         </thead>
                         
@@ -29,7 +29,7 @@
                             </a>  
                         </td>  
                         <td>
-                                {{ $nb->dateFormatted() }}
+                                {{ $nb->published_at->format('m/d/Y') }}
                         </td>
                         </tr>
                  @endforeach

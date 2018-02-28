@@ -10,7 +10,7 @@
 
     <!-- <title>{{ config('app.name', 'Deped  Palawan') }}</title> -->
     <title> @yield('title', 'DepEd Palawan')</title>
-
+    <link rel="icon" href="{!! asset('backend/img/logo.ico') !!}"/>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('css/grid.css') }}" rel="stylesheet"> -->

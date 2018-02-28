@@ -14,8 +14,8 @@
                             <tr>
                             
                                 <th width="10">#</th>
-                                <th >Title</th>
-                                <th >Date</th>
+                                <th width="30">Title</th>
+                                <th width="50" >Date Published</th>
                             </tr>
                         </thead>
                         
@@ -29,7 +29,7 @@
                             </a>  
                         </td>  
                         <td>
-                                {{ $adv->dateFormatted() }}
+                                {{ $adv->published_at->format('m/d/Y') }}
                         </td>
                         </tr>
                  @endforeach

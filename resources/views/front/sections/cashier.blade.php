@@ -29,7 +29,7 @@
                     </a>  
                   </td>  
                   <td>
-                        {{ $cshr->dateFormatted() }}
+                        {{ $cshr->published_at->format('m/d/Y') }}
                   </td>
                 </tr>
                 @endforeach

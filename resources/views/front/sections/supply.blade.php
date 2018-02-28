@@ -28,7 +28,7 @@
                                 </a>  
                             </td>  
                             <td>
-                                    {{ $s->dateFormatted() }}
+                                    {{ $s->published_at->format('m/d/Y') }}
                             </td>
                             </tr>
                         @endforeach

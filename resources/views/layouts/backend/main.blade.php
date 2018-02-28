@@ -26,6 +26,8 @@
    <!--jasny-->
    <link rel="stylesheet" href="/backend/plugins/jasny-bootstrap/css/jasny-bootstrap.min.css">
    @yield('styles')
+   <link rel="icon" href="{!! asset('backend/img/logo.ico') !!}"/>
+   
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

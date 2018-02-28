@@ -69,16 +69,16 @@ class PostController extends Controller
 
     public function showDownload()
     {
-        $accounting = Post::where('category_id',2)->published()->get();
-        $admin      = Post::where('category_id',3)->published()->get();
-        $cashier    = Post::where('category_id',10)->published()->get();
-        $cid        = Post::where('category_id',11)->published()->get();
-        $legal      = Post::where('category_id',12)->published()->get();
-        $lrms       = Post::where('category_id',13)->published()->get();
-        $medical    = Post::where('category_id',14)->published()->get();
-        $records    = Post::where('category_id',15)->published()->get();
-        $sgod       = Post::where('category_id',16)->published()->get();
-        $supply     = Post::where('category_id',17)->published()->get();
+        $accounting = Post::where('category_id',2)->published()->latestFirst()->get();
+        $admin      = Post::where('category_id',3)->published()->latestFirst()->get();
+        $cashier    = Post::where('category_id',10)->published()->latestFirst()->get();
+        $cid        = Post::where('category_id',11)->published()->latestFirst()->get();
+        $legal      = Post::where('category_id',12)->published()->latestFirst()->get();
+        $lrms       = Post::where('category_id',13)->published()->latestFirst()->get();
+        $medical    = Post::where('category_id',14)->published()->latestFirst()->get();
+        $records    = Post::where('category_id',15)->published()->latestFirst()->get();
+        $sgod       = Post::where('category_id',16)->published()->latestFirst()->get();
+        $supply     = Post::where('category_id',17)->published()->latestFirst()->get();
         
         return view('front.download', compact("accounting","admin","cashier","cid","legal","lrms","medical","records","sgod","supply"));
     }
@@ -88,9 +88,9 @@ class PostController extends Controller
 
     public function issuances()
     {
-        $advisory = Post::where('category_id',4)->published()->get();
-        $numbered = Post::where('category_id',6)->published()->get();
-        $unnumbered = Post::where('category_id',9)->published()->get();
+        $advisory = Post::where('category_id',4)->published()->latestFirst()->get();
+        $numbered = Post::where('category_id',6)->published()->latestFirst()->get();
+        $unnumbered = Post::where('category_id',9)->published()->latestFirst()->get();
         
         return view("front.issuances", compact('advisory','numbered','unnumbered'));
     }

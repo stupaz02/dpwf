@@ -30,7 +30,7 @@
                       </a>  
                     </td>  
                     <td>
-                          {{ $acctng->dateFormatted() }}
+                          {{ $acctng->published_at->format('m/d/Y') }}
                     </td>
                   </tr>
                   @endforeach

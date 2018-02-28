@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="/backend/css/login.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="/backend/plugins/iCheck/square/blue.css">
+  <link rel="icon" href="{!! asset('backend/img/logo.ico') !!}"/>
+  
  
 
 
