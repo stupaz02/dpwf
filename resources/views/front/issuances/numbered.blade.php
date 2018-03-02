@@ -44,7 +44,9 @@
                         <p>No record found</strong>
                     </div>
 
-            @endif
+ 			   
+           @endif
+		   {{$numbered->appends(request()->only(['title']))->links("pagination::bootstrap-4")}}   		
             </div>
         </div>
     </div>

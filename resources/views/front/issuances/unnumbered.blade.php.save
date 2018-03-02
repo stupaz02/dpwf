@@ -46,7 +46,7 @@
 
             @endif
 
-			  {{ $unnumbered->appends(request()->only(['title']))->links( "pagination::bootstrap-4")}}
+		appends(request()->only(['term']))->links( "pagination::bootstrap-4")}}
             </div>
         </div>
     </div>

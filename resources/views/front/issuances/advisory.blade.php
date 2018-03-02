@@ -45,6 +45,7 @@
                     </div>
 
             @endif
+  		   {{ $advisory->appends(request()->only(['title']))->links( "pagination::bootstrap-4")}}
         </div>
     </div>
 </div>
