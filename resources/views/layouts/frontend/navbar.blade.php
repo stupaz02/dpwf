@@ -48,7 +48,7 @@
                    <a href="#" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o  mr-1" aria-hidden="true" id="dropdown"></i> About Us</a>
                    <div class="dropdown-menu">
                        <a class="dropdown-item" href="{{ route('front.history')}}"><i class="fa fa-history mr-1" aria-hidden="true"></i> History</a>
-                       <a class="dropdown-item" href="#"><i class="fa fa-eye mr-1" aria-hidden="true"></i> Vision, Mission, Core Values</a>
+                   <a class="dropdown-item" href="{{ route('front.vision')}}"><i class="fa fa-eye mr-1" aria-hidden="true"></i> Vision, Mission, Core Values</a>
                        <a class="dropdown-item" href="#"><i class="fa fa-users mr-1" aria-hidden="true"></i> Organizational Structure</a>
                      
                    </div>

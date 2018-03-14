@@ -7,15 +7,15 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-         History
-        <small>Edit History</small>
+         ABOUT US
+        <small>Edit ABOUT US</small>
       </h1>
       <ol class="breadcrumb">
           <li>
               <a href="{{ url('/home')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
           </li>
-          <li class="active"><a href="{{ route('pages.index')}}">History</a></li>
-          <li class="active">Edit history</li>
+          <li class="active"><a href="{{ route('pages.index')}}">ABOUT US</a></li>
+          <li class="active">Edit ABOUT US</li>
       </ol>
     </section>
 

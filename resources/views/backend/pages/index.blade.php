@@ -7,14 +7,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-         History
+       ABOUT US
         {{--  <small>Display All slides</small>  --}}
       </h1>
       <ol class="breadcrumb">
           <li>
               <a href="{{ url('/home')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
           </li>
-          <li class="active"><a href="{{ route('pages.index')}}">History</a></li>
+          <li class="active"><a href="{{ route('pages.index')}}">About Us</a></li>
           {{--  <li class="active">All slides</li>  --}}
       </ol>
     </section>

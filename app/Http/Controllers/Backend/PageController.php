@@ -17,6 +17,7 @@ class PageController extends BackendController
     public function index()
     {
         $history      = History::all();
+        
         $historyCount = History::count();
 
         return view("backend.pages.index",compact('history','historyCount'));

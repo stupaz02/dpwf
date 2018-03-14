@@ -48,6 +48,11 @@ Route::get('/history',[
     'as'   => 'front.history'
 ]);
 
+Route::get('/vision-mission-core-values',[
+    'uses' =>'PostController@vision',
+    'as'   =>'front.vision'
+]);
+
 // Route::post('/backend/post/upload',[
 //     'uses' => 'Backend\FileUploaderController@uploadFile',
 //     'as'   => 'post.fileupload'

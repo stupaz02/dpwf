@@ -99,7 +99,14 @@ class PostController extends Controller
     public function history()
     {
         $history = History::all();
-        return view("front.pages.history", compact('history'));
+        $vision  = History::where('id',2)->get();
+        return view("front.pages.history", compact('history','vision'));
+    }
+
+    public function vision()
+    {
+        $vision  = History::where('title','Vision, Mission and Core Values')->get();
+        return view("front.pages.vision-mission", compact('vision'));
     }
 
     public function contact()
