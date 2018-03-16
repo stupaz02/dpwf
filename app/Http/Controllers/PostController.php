@@ -40,9 +40,17 @@ class PostController extends Controller
                 );
             }
         }
-        $calendar = Calendar::addEvents($events);
-  
+        $calendar = Calendar::addEvents($events)
        
+        ->setCallbacks([
+            // 'eventClick' => 'function() {
+            //     console.log("You clicked on an event!");
+            // }'
+
+            'eventRender' => 'function(event, element) {
+                $(element).tooltip({title: event.title});             
+            }'
+        ]);
         return view('front.index', compact('announcements','advisories','memoranda','features','calendar','photos'));
     }
 
